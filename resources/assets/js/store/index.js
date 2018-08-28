@@ -13,6 +13,8 @@ import house from './modules/house'
 import floors from './modules/floors'
 import rooms from './modules/rooms'
 import devices from './modules/devices'
+import lights from './modules/lights'
+import radiators from './modules/radiators'
 
 export default new VueX.Store({
     modules: {
@@ -20,6 +22,8 @@ export default new VueX.Store({
         floors,
         rooms,
         devices,
+        lights,
+        radiators,
     }
 })
 

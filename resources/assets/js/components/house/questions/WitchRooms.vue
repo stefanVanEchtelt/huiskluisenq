@@ -62,12 +62,10 @@
                 return this.$store.getters.getFloorsByHouse(this.houseId);
             },
             floor() {
+                console.log(this.floorId);
                 return this.$store.getters.findFloor(this.floorId);
             },
             storey() {
-                console.log(this.houseFloors);
-                console.log(this.floor);
-
                 if (this.houseFloors && this.floor) {
                     return this.houseFloors.indexOf(this.floor) + 1;
                 }

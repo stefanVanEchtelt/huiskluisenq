@@ -35,6 +35,12 @@ Route::get('/api/house/{id}/rooms', 'RoomController@getAllByHouse');
 Route::resource('/api/device', 'DeviceController');
 Route::get('/api/device/{roomId}/room', 'DeviceController@getByRoom');
 
+Route::resource('/api/light', 'LightController');
+Route::get('/api/light/{roomId}/room', 'LightController@getByRoom');
+
+Route::resource('/api/radiator', 'RadiatorController');
+Route::get('/api/radiator/{roomId}/room', 'RadiatorController@getByRoom');
+
 Route::any('/house/{all}', function () {
     return view('home');
 })->where(['all' => '.*']);

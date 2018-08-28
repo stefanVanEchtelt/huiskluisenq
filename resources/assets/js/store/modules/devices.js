@@ -24,9 +24,16 @@ export default {
                 type_id: 1,
                 sort: 1,
             }).then((response) => {
-                console.log(response);
                 this.commit('setDevice', response.data);
             })
+        },
+        updateDevice(state, device) {
+            let deviceExists = state.devices.find(deviceSearch => deviceSearch.id == device.id);
+            if (deviceExists !== undefined) {
+                Vue.axios.put('/api/device/' + device.id, device).then((response) => {
+                    this.commit('setDevice', response.data);
+                });
+            }
         },
     },
     actions: {
@@ -36,7 +43,6 @@ export default {
             });
         }
     },
-
     getters: {
         getDevicesByRoom: (state) => (roomId) => {
             // todo sort

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Device;
+use App\Light;
 use Illuminate\Http\Request;
 
-class DeviceController extends Controller
+class LightController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(
+            Light::all()
+        );
     }
 
     /**
@@ -36,28 +38,30 @@ class DeviceController extends Controller
     public function store(Request $request)
     {
         return response()->json(
-            Device::create($request->all())
+            Light::create($request->all())
         );
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Device  $device
+     * @param  \App\Light  $light
      * @return \Illuminate\Http\Response
      */
-    public function show(Device $device)
+    public function show(Light $light)
     {
-        //
+        return response()->json(
+            $light
+        );
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Device  $device
+     * @param  \App\Light  $light
      * @return \Illuminate\Http\Response
      */
-    public function edit(Device $device)
+    public function edit(Light $light)
     {
         //
     }
@@ -66,25 +70,27 @@ class DeviceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Device  $device
+     * @param  \App\Light  $light
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Device $device)
+    public function update(Request $request, Light $light)
     {
         return response()->json(
-            $device->update($request->all())
+            $light->update($request->all())
         );
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Device  $device
+     * @param  \App\Light  $light
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Device $device)
+    public function destroy(Light $light)
     {
-        //
+        return response()->json(
+            $light->delete()
+        );
     }
 
     /**
@@ -94,7 +100,7 @@ class DeviceController extends Controller
     public function getByRoom(int $roomId)
     {
         return response()->json(
-            Device::where('room_id', $roomId)->get()
+            Light::where('room_id', $roomId)->get()
         );
     }
 }

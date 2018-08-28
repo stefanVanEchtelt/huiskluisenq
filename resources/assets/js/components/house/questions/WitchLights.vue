@@ -2,37 +2,31 @@
     <div class="panel panel-default" v-if="room">
         <div class="panel-heading">Vraag 2</div>
         <div class="panel-body" style="font-size: 30px;">
-            Welke apparaten bevinden zich in {{ room.name ? room.name : '..' }} op de {{ storey }}e verdieping?
+            Welke verlichting bevint zich in de {{ room.name ? room.name : '' }} op de {{ storey }}e verdieping?
             <table class="table" style="width: 100%">
                 <thead>
                 <tr>
                     <th>Naam</th>
                     <th>Amount</th>
-                    <th>Type</th>
+                    <th>&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="device in devices">
-                        <td>
-                            <input class="form-control" v-model="device.name" @change="updateDevice(device)">
-                        </td>
-                        <td>
-                            <input class="form-control" type="number" v-model="device.amount" @change="updateDevice(device)">
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                <!--TODO options-->
-                                <select class="form-control" v-model="device.type_id" @change="updateDevice(device)">
-                                    <option value="1">Watt</option>
-                                    <option value="2">Gas</option>
-                                </select>
-                            </div>
-                        </td>
-                    </tr>
+                <tr v-for="light in lights">
+                    <td>
+                        <input class="form-control" v-model="light.name" @change="updateLight(light)">
+                    </td>
+                    <td>
+                        <input class="form-control" type="number" v-model="light.amount" @change="updateLight(light)">
+                    </td>
+                    <td>
+                        Watt
+                    </td>
+                </tr>
                 </tbody>
             </table>
 
-            <a class="btn btn-primary pull-right" @click="addDevice">Apperaat toevoegen</a>
+            <a class="btn btn-primary pull-right" @click="addLight">Verlichting toevoegen</a>
         </div>
         <div class="panel-footer">
             <div class="row">
@@ -80,28 +74,28 @@
                     return this.$store.getters.findFloor(this.room.floor_id);
                 }
             },
-            devices() {
-                return this.$store.getters.getDevicesByRoom(this.roomId);
+            lights() {
+                return this.$store.getters.getLightsByRoom(this.roomId);
             }
         },
         methods: {
             loadPage() {
                 this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
-                this.$store.dispatch('loadDevicesByRoom', this.roomId);
+                this.$store.dispatch('loadLightsByRoom', this.roomId);
                 this.$store.dispatch('loadRoom', this.roomId);
             },
-            addDevice() {
-                this.$store.commit('addEmptyDevice', this.roomId);
+            addLight() {
+                this.$store.commit('addEmptyLight', this.roomId);
             },
-            updateDevice(device) {
-                this.$store.commit('updateDevice', device);
+            updateLight(light) {
+                this.$store.commit('updateLight', light);
             },
             nextPage() {
                 let index = this.allRooms.indexOf(this.room);
                 if (this.allRooms[index + 1]) {
-                    router.push('/house/' + this.houseId + '/devices/' + this.allRooms[index + 1].id);
+                    router.push('/house/' + this.houseId + '/lights/' + this.allRooms[index + 1].id);
                 } else {
-                    // TODO load next page (lights)
+                    // TODO load next page (radiators)
                     console.log(' --- xxx --- ');
                     console.log(' load another Page');
                 }
@@ -109,9 +103,9 @@
             lastPage() {
                 let index = this.allRooms.indexOf(this.room);
                 if (index <= 0) {
-                    router.push('/house/' + this.houseId + '/floor/' + this.houseFloors[this.houseFloors.length - 1].id);
+                    router.push('/house/' + this.houseId + '/devices/' + this.allRooms[this.allRooms.length - 1].id);
                 } else {
-                    router.push('/house/' + this.houseId + '/devices/' + this.allRooms[index - 1].id);
+                    router.push('/house/' + this.houseId + '/lights/' + this.allRooms[index - 1].id);
                 }
             }
         },
