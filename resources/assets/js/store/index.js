@@ -15,6 +15,8 @@ import rooms from './modules/rooms'
 import devices from './modules/devices'
 import lights from './modules/lights'
 import radiators from './modules/radiators'
+import outsideDevices from './modules/outsideDevices'
+import outsideLights from './modules/outsideLights'
 
 export default new VueX.Store({
     modules: {
@@ -24,6 +26,8 @@ export default new VueX.Store({
         devices,
         lights,
         radiators,
+        outsideDevices,
+        outsideLights,
     }
 })
 

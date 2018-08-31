@@ -62,7 +62,6 @@
                 return this.$store.getters.getFloorsByHouse(this.houseId);
             },
             floor() {
-                console.log(this.floorId);
                 return this.$store.getters.findFloor(this.floorId);
             },
             storey() {
@@ -70,8 +69,10 @@
                     return this.houseFloors.indexOf(this.floor) + 1;
                 }
             },
+            allRooms() {
+                return this.$store.getters.getRoomsByHouse(this.houseId);
+            },
             rooms() {
-                // todo show Loader on all ..**..
                 return this.$store.getters.getRoomsByFloor(this.floorId);
             }
         },
@@ -92,9 +93,7 @@
                 if (this.houseFloors[index + 1]) {
                     router.push('/house/' + this.houseId + '/floor/' + this.houseFloors[index + 1].id);
                 } else {
-                    // TODO
-                    console.log(' --- xxx --- ');
-                    console.log(' load another Page');
+                    router.push('/house/' + this.houseId + '/devices/' + this.allRooms[0].id);
                 }
             },
             deleteRoom(roomId) {
@@ -104,11 +103,10 @@
                 this.$store.commit('addEmptyRoom', this.floorId);
             },
             loadPage() {
-                this.$store.dispatch('loadRoomsByFloor', this.floorId);
+                this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
             }
         },
         created() {
-//            todo show Loader
             this.loadPage();
         }
     }

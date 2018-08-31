@@ -5,11 +5,17 @@
 </template>
 
 <script>
+    import router from '../router'
+
     export default {
+        data() {
+            return {
+                houseId: parseInt(router.currentRoute.params.houseId),
+            }
+        },
         mounted() {
-            // #todo load id by url
-            this.$store.dispatch('loadHouse', 1);
-            this.$store.dispatch('loadFloors', 1);
+            this.$store.dispatch('loadHouse', this.houseId);
+            this.$store.dispatch('loadFloors', this.houseId);
         }
     }
 </script>

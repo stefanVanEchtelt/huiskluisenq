@@ -9,6 +9,7 @@
                     <th>Naam</th>
                     <th>Amount</th>
                     <th>&nbsp;</th>
+                    <th>&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@
                     <td>
                         Watt
                     </td>
+                    <td><a class="btn btn-danger" @click="deleteLight(light.id)"><i class="far fa-trash-alt"></i></a></td>
                 </tr>
                 </tbody>
             </table>
@@ -90,14 +92,15 @@
             updateLight(light) {
                 this.$store.commit('updateLight', light);
             },
+            deleteLight(lightId) {
+                this.$store.commit('deleteLight', lightId);
+            },
             nextPage() {
                 let index = this.allRooms.indexOf(this.room);
                 if (this.allRooms[index + 1]) {
                     router.push('/house/' + this.houseId + '/lights/' + this.allRooms[index + 1].id);
                 } else {
-                    // TODO load next page (radiators)
-                    console.log(' --- xxx --- ');
-                    console.log(' load another Page');
+                    router.push('/house/' + this.houseId + '/radiators/' + this.allRooms[0].id);
                 }
             },
             lastPage() {
@@ -110,7 +113,6 @@
             }
         },
         created() {
-//            todo show Loader
             this.loadPage();
         }
     }

@@ -9,6 +9,7 @@
                     <th>Naam</th>
                     <th>Amount</th>
                     <th>Type</th>
+                    <th>&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,7 @@
                                 </select>
                             </div>
                         </td>
+                        <td><a class="btn btn-danger" @click="deleteDevice(device.id)"><i class="far fa-trash-alt"></i></a></td>
                     </tr>
                 </tbody>
             </table>
@@ -96,14 +98,15 @@
             updateDevice(device) {
                 this.$store.commit('updateDevice', device);
             },
+            deleteDevice(deviceId) {
+                this.$store.commit('deleteDevice', deviceId);
+            },
             nextPage() {
                 let index = this.allRooms.indexOf(this.room);
                 if (this.allRooms[index + 1]) {
                     router.push('/house/' + this.houseId + '/devices/' + this.allRooms[index + 1].id);
                 } else {
-                    // TODO load next page (lights)
-                    console.log(' --- xxx --- ');
-                    console.log(' load another Page');
+                    router.push('/house/' + this.houseId + '/lights/' + this.allRooms[0].id);
                 }
             },
             lastPage() {
@@ -116,7 +119,6 @@
             }
         },
         created() {
-//            todo show Loader
             this.loadPage();
         }
     }

@@ -84,7 +84,9 @@ class DeviceController extends Controller
      */
     public function destroy(Device $device)
     {
-        //
+        return response()->json(
+            $device->delete()
+        );
     }
 
     /**

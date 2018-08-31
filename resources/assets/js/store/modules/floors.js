@@ -14,17 +14,18 @@ export default {
                 state.floors.push(floor);
             });
         },
-        updateFloorsByCount(state, floorCount) {
-            let sortedFloors = this.getters.getFloorsByHouse(1)
-            if (floorCount <= sortedFloors.length) {
+        updateFloorsByCount(state, data) {
+            // TODO change house
+            let sortedFloors = this.getters.getFloorsByHouse(data.houseId);
+            if (data.floorCount <= sortedFloors.length) {
                 var i;
-                for (i = floorCount; i < sortedFloors.length; i++) {
+                for (i = data.floorCount; i < sortedFloors.length; i++) {
                     this.commit('deleteFloor', sortedFloors[i].id);
                 }
-            } else if (floorCount >= sortedFloors.length) {
+            } else if (data.floorCount >= sortedFloors.length) {
                 var i;
-                for (i = sortedFloors.length; i < floorCount; i++) {
-                    this.commit('createFloor', 1); // houseId
+                for (i = sortedFloors.length; i < data.floorCount; i++) {
+                    this.commit('createFloor', data.houseId);
                 }
             }
         },
@@ -48,9 +49,6 @@ export default {
     },
     actions: {
         loadFloors(state, houseId) {
-            Vue.axios.get('/api/house/' + houseId + '/floors').then((response) => {
-                this.commit('setFloors', response.data);
-            });
             Vue.axios.get('/api/house/' + houseId + '/floors').then((response) => {
                 this.commit('setFloors', response.data);
             });

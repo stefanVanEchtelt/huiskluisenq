@@ -34,6 +34,14 @@ export default {
                 });
             }
         },
+        deleteLight(state, lightId) {
+            let lightExists = state.lights.find(lightSearch => lightSearch.id == lightId);
+            if (lightExists !== undefined) {
+                Vue.axios.delete('/api/light/' + lightId).then((response) => {
+                    state.lights.splice(state.lights.indexOf(lightExists), 1);
+                });
+            }
+        }
     },
     actions: {
         loadLightsByRoom(state, roomId) {

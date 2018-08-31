@@ -35,6 +35,14 @@ export default {
                 });
             }
         },
+        deleteDevice(state, deviceId) {
+            let deviceExists = state.devices.find(deviceSearch => deviceSearch.id == deviceId);
+            if (deviceExists !== undefined) {
+                Vue.axios.delete('/api/device/' + deviceId).then((response) => {
+                    state.devices.splice(state.devices.indexOf(deviceExists), 1);
+                });
+            }
+        }
     },
     actions: {
         loadDevicesByRoom(state, roomId) {

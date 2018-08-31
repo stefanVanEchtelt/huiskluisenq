@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import router from '../../router'
 
 export default {
     state: {
@@ -11,6 +12,14 @@ export default {
                 state.houses.splice(state.houses.indexOf(houseExists), 1);
             }
             state.houses.push(house);
+        },
+        addHouse(state) {
+            Vue.axios.post('/api/house', {
+                user_id: 2
+            }).then((response) => {
+                router.push('/house/' + response.data.id + '/floors');
+                this.commit('setHouse', response.data);
+            })
         }
     },
     actions: {

@@ -11341,6 +11341,81 @@ module.exports = Vue;
 
 /***/ }),
 /* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_house_Houses__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue__);
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+    mode: 'history',
+    routes: [{
+        name: 'home',
+        path: '/home',
+        component: __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default.a
+    }, {
+        name: 'houseFloorCount',
+        path: '/house/:houseId/floors',
+        component: __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default.a
+    }, {
+        name: 'houseFloor',
+        path: '/house/:houseId/floor/:floorId',
+        component: __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default.a
+    }, {
+        name: 'houseRoomDevices',
+        path: '/house/:houseId/devices/:roomId',
+        component: __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default.a
+    }, {
+        name: 'houseRoomLights',
+        path: '/house/:houseId/lights/:roomId',
+        component: __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default.a
+    }, {
+        name: 'houseRoomRadiators',
+        path: '/house/:houseId/radiators/:roomId',
+        component: __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default.a
+    }, {
+        name: 'houseDevicesOutside',
+        path: '/house/:houseId/outside/devices',
+        component: __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue___default.a
+    }, {
+        name: 'houseLightsOutside',
+        path: '/house/:houseId/outside/lights',
+        component: __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue___default.a
+    }]
+}));
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -11449,7 +11524,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11547,77 +11622,6 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_house_Houses__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchDevicesOutside_vue__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchDevicesOutside_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchDevicesOutside_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchLightsOutside_vue__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchLightsOutside_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchLightsOutside_vue__);
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-
-
-
-
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-    mode: 'history',
-    routes: [{
-        name: 'houseFloorCount',
-        path: '/house/:houseId/floors',
-        component: __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default.a
-    }, {
-        name: 'houseFloor',
-        path: '/house/:houseId/floor/:floorId',
-        component: __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default.a
-    }, {
-        name: 'houseRoomDevices',
-        path: '/house/:houseId/devices/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default.a
-    }, {
-        name: 'houseRoomLights',
-        path: '/house/:houseId/lights/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default.a
-    }, {
-        name: 'houseRoomRadiators',
-        path: '/house/:houseId/radiators/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default.a
-    }, {
-        name: 'houseDevicesOutside',
-        path: '/house/:houseId/devices/outside',
-        component: __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchDevicesOutside_vue___default.a
-    }, {
-        name: 'houseLightsOutside',
-        path: '/house/:houseId/lights/outside',
-        component: __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchLightsOutside_vue___default.a
-    }]
-}));
 
 /***/ }),
 /* 5 */
@@ -12120,7 +12124,7 @@ process.umask = function() { return 0; };
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(6);
 var Axios = __webpack_require__(15);
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 
 /**
  * Create an instance of Axios
@@ -12203,7 +12207,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(24);
 var dispatchRequest = __webpack_require__(25);
@@ -12744,7 +12748,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(26);
 var isCancel = __webpack_require__(9);
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(4);
 var isAbsoluteURL = __webpack_require__(27);
 var combineURLs = __webpack_require__(28);
 
@@ -13009,6 +13013,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router__ = __webpack_require__(2);
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -13024,14 +13030,24 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
                 state.houses.splice(state.houses.indexOf(houseExists), 1);
             }
             state.houses.push(house);
+        },
+        addHouse: function addHouse(state) {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.post('/api/house', {
+                user_id: 2
+            }).then(function (response) {
+                __WEBPACK_IMPORTED_MODULE_1__router__["a" /* default */].push('/house/' + response.data.id + '/floors');
+                _this.commit('setHouse', response.data);
+            });
         }
     },
     actions: {
         loadHouse: function loadHouse(state, houseId) {
-            var _this = this;
+            var _this2 = this;
 
             __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/house/' + houseId).then(function (response) {
-                _this.commit('setHouse', response.data);
+                _this2.commit('setHouse', response.data);
             });
         }
     },
@@ -13069,17 +13085,18 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
                 state.floors.push(floor);
             });
         },
-        updateFloorsByCount: function updateFloorsByCount(state, floorCount) {
-            var sortedFloors = this.getters.getFloorsByHouse(1);
-            if (floorCount <= sortedFloors.length) {
+        updateFloorsByCount: function updateFloorsByCount(state, data) {
+            // TODO change house
+            var sortedFloors = this.getters.getFloorsByHouse(data.houseId);
+            if (data.floorCount <= sortedFloors.length) {
                 var i;
-                for (i = floorCount; i < sortedFloors.length; i++) {
+                for (i = data.floorCount; i < sortedFloors.length; i++) {
                     this.commit('deleteFloor', sortedFloors[i].id);
                 }
-            } else if (floorCount >= sortedFloors.length) {
+            } else if (data.floorCount >= sortedFloors.length) {
                 var i;
-                for (i = sortedFloors.length; i < floorCount; i++) {
-                    this.commit('createFloor', 1); // houseId
+                for (i = sortedFloors.length; i < data.floorCount; i++) {
+                    this.commit('createFloor', data.houseId);
                 }
             }
         },
@@ -13107,9 +13124,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
         loadFloors: function loadFloors(state, houseId) {
             var _this = this;
 
-            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/house/' + houseId + '/floors').then(function (response) {
-                _this.commit('setFloors', response.data);
-            });
             __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/house/' + houseId + '/floors').then(function (response) {
                 _this.commit('setFloors', response.data);
             });
@@ -13162,8 +13176,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_App__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_App___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_App__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_axios__ = __webpack_require__(31);
@@ -13454,11 +13468,11 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(47)
 /* template */
-var __vue_template__ = __webpack_require__(48)
+var __vue_template__ = __webpack_require__(73)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -13502,6 +13516,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
 //
 //
 //
@@ -13509,36 +13524,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId)
+        };
+    },
     mounted: function mounted() {
-        // #todo load id by url
-        this.$store.dispatch('loadHouse', 1);
-        this.$store.dispatch('loadFloors', 1);
+        this.$store.dispatch('loadHouse', this.houseId);
+        this.$store.dispatch('loadFloors', this.houseId);
     }
 });
 
 /***/ }),
 /* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "app" }, [_c("router-view")], 1)
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-117390fa", module.exports)
-  }
-}
-
-/***/ }),
-/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16168,15 +16169,15 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(51)
+var __vue_script__ = __webpack_require__(50)
 /* template */
-var __vue_template__ = __webpack_require__(52)
+var __vue_template__ = __webpack_require__(51)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16215,7 +16216,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16230,39 +16231,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
+    methods: {
+        createHouse: function createHouse() {
+            this.$store.commit('addHouse');
+        }
     }
 });
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "panel panel-default" }, [
+    _c("div", { staticClass: "panel-heading" }, [
+      _vm._v("\n        Houses\n        "),
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-sm btn-primary pull-right",
+          on: { click: _vm.createHouse }
+        },
+        [_vm._v("Nieuw huis")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel-body" }, [_vm._v("\n        Huizen\n    ")])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [
-        _vm._v("Example Component")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _vm._v("\n        I'm an example component!\n    ")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -16273,15 +16278,15 @@ if (false) {
 }
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(54)
+var __vue_script__ = __webpack_require__(53)
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(54)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16320,12 +16325,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+//
 //
 //
 //
@@ -16348,16 +16354,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            floorCountEdit: null
+            floorCountEdit: null,
+            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId)
         };
     },
 
     computed: {
         floorCount: {
             get: function get() {
-                // #todo load id by url
-                var floorCount = this.$store.getters.getFloorsByHouse(1).length;
-                return this.floorCountEdit = floorCount;
+                return this.floorCountEdit = this.$store.getters.getFloorsByHouse(this.houseId).length;
             },
             set: function set(value) {
                 this.floorCountEdit = value;
@@ -16365,16 +16370,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     methods: {
+        lastPage: function lastPage() {
+            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/home');
+        },
         saveRoomCount: function saveRoomCount() {
-            this.$store.commit('updateFloorsByCount', this.floorCountEdit);
-            // #todo load id by url Load first floor
-            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/1/floor/4');
+            var _this = this;
+
+            this.$store.commit('updateFloorsByCount', { 'floorCount': this.floorCountEdit, 'houseId': this.houseId });
+            // TODO PROMISE instead of timeout
+            setTimeout(function () {
+                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + _this.houseId + '/floor/' + _this.$store.getters.getFloorsByHouse(_this.houseId)[0].id);
+            }, 300);
         }
     }
 });
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16418,6 +16430,12 @@ var render = function() {
         _c("div", { staticClass: "col-lg-12" }, [
           _c(
             "a",
+            { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
+            [_vm._v("Vorige")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
             {
               staticClass: "btn btn-primary pull-right",
               on: { click: _vm.saveRoomCount }
@@ -16440,15 +16458,15 @@ if (false) {
 }
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(57)
+var __vue_script__ = __webpack_require__(56)
 /* template */
-var __vue_template__ = __webpack_require__(58)
+var __vue_template__ = __webpack_require__(57)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16487,12 +16505,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
 //
 //
 //
@@ -16558,7 +16576,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.$store.getters.getFloorsByHouse(this.houseId);
         },
         floor: function floor() {
-            console.log(this.floorId);
             return this.$store.getters.findFloor(this.floorId);
         },
         storey: function storey() {
@@ -16566,8 +16583,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return this.houseFloors.indexOf(this.floor) + 1;
             }
         },
+        allRooms: function allRooms() {
+            return this.$store.getters.getRoomsByHouse(this.houseId);
+        },
         rooms: function rooms() {
-            // todo show Loader on all ..**..
             return this.$store.getters.getRoomsByFloor(this.floorId);
         }
     },
@@ -16588,9 +16607,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.houseFloors[index + 1]) {
                 __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/floor/' + this.houseFloors[index + 1].id);
             } else {
-                // TODO
-                console.log(' --- xxx --- ');
-                console.log(' load another Page');
+                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/devices/' + this.allRooms[0].id);
             }
         },
         deleteRoom: function deleteRoom(roomId) {
@@ -16600,17 +16617,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$store.commit('addEmptyRoom', this.floorId);
         },
         loadPage: function loadPage() {
-            this.$store.dispatch('loadRoomsByFloor', this.floorId);
+            this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
         }
     },
     created: function created() {
-        //            todo show Loader
         this.loadPage();
     }
 });
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -16775,15 +16791,15 @@ if (false) {
 }
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(60)
+var __vue_script__ = __webpack_require__(59)
 /* template */
-var __vue_template__ = __webpack_require__(61)
+var __vue_template__ = __webpack_require__(60)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16822,12 +16838,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+//
+//
 //
 //
 //
@@ -16927,14 +16945,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         updateDevice: function updateDevice(device) {
             this.$store.commit('updateDevice', device);
         },
+        deleteDevice: function deleteDevice(deviceId) {
+            this.$store.commit('deleteDevice', deviceId);
+        },
         nextPage: function nextPage() {
             var index = this.allRooms.indexOf(this.room);
             if (this.allRooms[index + 1]) {
                 __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/devices/' + this.allRooms[index + 1].id);
             } else {
-                // TODO load next page (lights)
-                console.log(' --- xxx --- ');
-                console.log(' load another Page');
+                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/lights/' + this.allRooms[0].id);
             }
         },
         lastPage: function lastPage() {
@@ -16947,13 +16966,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     created: function created() {
-        //            todo show Loader
         this.loadPage();
     }
 });
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17089,6 +17107,21 @@ var render = function() {
                             ]
                           )
                         ])
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-danger",
+                            on: {
+                              click: function($event) {
+                                _vm.deleteDevice(device.id)
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "far fa-trash-alt" })]
+                        )
                       ])
                     ])
                   })
@@ -17141,7 +17174,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Amount")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Type")])
+        _c("th", [_vm._v("Type")]),
+        _vm._v(" "),
+        _c("th", [_vm._v(" ")])
       ])
     ])
   }
@@ -17156,15 +17191,15 @@ if (false) {
 }
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(63)
+var __vue_script__ = __webpack_require__(62)
 /* template */
-var __vue_template__ = __webpack_require__(64)
+var __vue_template__ = __webpack_require__(63)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -17203,12 +17238,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+//
+//
 //
 //
 //
@@ -17302,14 +17339,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         updateLight: function updateLight(light) {
             this.$store.commit('updateLight', light);
         },
+        deleteLight: function deleteLight(lightId) {
+            this.$store.commit('deleteLight', lightId);
+        },
         nextPage: function nextPage() {
             var index = this.allRooms.indexOf(this.room);
             if (this.allRooms[index + 1]) {
                 __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/lights/' + this.allRooms[index + 1].id);
             } else {
-                // TODO load next page (radiators)
-                console.log(' --- xxx --- ');
-                console.log(' load another Page');
+                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/radiators/' + this.allRooms[0].id);
             }
         },
         lastPage: function lastPage() {
@@ -17322,13 +17360,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     created: function created() {
-        //            todo show Loader
         this.loadPage();
     }
 });
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -17415,6 +17452,21 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [
                         _vm._v("\n                    Watt\n                ")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-danger",
+                            on: {
+                              click: function($event) {
+                                _vm.deleteLight(light.id)
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "far fa-trash-alt" })]
+                        )
                       ])
                     ])
                   })
@@ -17467,6 +17519,8 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Amount")]),
         _vm._v(" "),
+        _c("th", [_vm._v(" ")]),
+        _vm._v(" "),
         _c("th", [_vm._v(" ")])
       ])
     ])
@@ -17482,15 +17536,15 @@ if (false) {
 }
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(88)
+var __vue_script__ = __webpack_require__(65)
 /* template */
-var __vue_template__ = __webpack_require__(89)
+var __vue_template__ = __webpack_require__(66)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -17529,15 +17583,315 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId),
+            roomId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.roomId)
+        };
+    },
+
+    watch: {
+        '$route': function $route(to, from) {
+            this.houseId = parseInt(to.params.houseId);
+            this.roomId = parseInt(to.params.roomId);
+            this.loadPage();
+        }
+    },
+    computed: {
+        houseFloors: function houseFloors() {
+            return this.$store.getters.getFloorsByHouse(this.houseId);
+        },
+        storey: function storey() {
+            return this.houseFloors.indexOf(this.floor) + 1;
+        },
+        allRooms: function allRooms() {
+            return this.$store.getters.getRoomsByHouse(this.houseId);
+        },
+        room: function room() {
+            return this.$store.getters.getRoom(this.roomId);
+        },
+        floor: function floor() {
+            if (this.room) {
+                return this.$store.getters.findFloor(this.room.floor_id);
+            }
+        },
+        radiators: function radiators() {
+            return this.$store.getters.getRadiatorsByRoom(this.roomId);
+        }
+    },
+    methods: {
+        loadPage: function loadPage() {
+            this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
+            this.$store.dispatch('loadRadiatorsByRoom', this.roomId);
+            this.$store.dispatch('loadRoom', this.roomId);
+        },
+        addRadiator: function addRadiator() {
+            this.$store.commit('addEmptyRadiator', this.roomId);
+        },
+        updateRadiator: function updateRadiator(light) {
+            this.$store.commit('updateRadiator', light);
+        },
+        deleteRadiator: function deleteRadiator(radiatorId) {
+            this.$store.commit('deleteRadiator', radiatorId);
+        },
+        nextPage: function nextPage() {
+            var index = this.allRooms.indexOf(this.room);
+            if (this.allRooms[index + 1]) {
+                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/radiators/' + this.allRooms[index + 1].id);
+            } else {
+                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/outside/devices');
+            }
+        },
+        lastPage: function lastPage() {
+            var index = this.allRooms.indexOf(this.room);
+            if (index <= 0) {
+                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/lights/' + this.allRooms[this.allRooms.length - 1].id);
+            } else {
+                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/radiators/' + this.allRooms[index - 1].id);
+            }
+        }
+    },
+    created: function created() {
+        this.loadPage();
+    }
+});
+
+/***/ }),
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.room
+    ? _c("div", { staticClass: "panel panel-default" }, [
+        _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
+          [
+            _vm._v(
+              "\n        Welke radiatoren bevint zich in de " +
+                _vm._s(_vm.room.name ? _vm.room.name : "") +
+                " op de " +
+                _vm._s(_vm.storey) +
+                "e verdieping?\n        "
+            ),
+            _c(
+              "table",
+              { staticClass: "table", staticStyle: { width: "100%" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.radiators, function(radiator) {
+                    return _c("tr", [
+                      _c("td", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: radiator.name,
+                              expression: "radiator.name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          domProps: { value: radiator.name },
+                          on: {
+                            change: function($event) {
+                              _vm.updateRadiator(radiator)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(radiator, "name", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: radiator.length,
+                              expression: "radiator.length"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "number" },
+                          domProps: { value: radiator.length },
+                          on: {
+                            change: function($event) {
+                              _vm.updateRadiator(radiator)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(radiator, "length", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                    cm lengte\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-danger",
+                            on: {
+                              click: function($event) {
+                                _vm.deleteRadiator(radiator.id)
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "far fa-trash-alt" })]
+                        )
+                      ])
+                    ])
+                  })
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-primary pull-right",
+                on: { click: _vm.addRadiator }
+              },
+              [_vm._v("Verlichting toevoegen")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "panel-footer" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-lg-12" }, [
+              _c(
+                "a",
+                { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
+                [_vm._v("Vorige")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-primary pull-right",
+                  on: { click: _vm.nextPage }
+                },
+                [_vm._v("Volgende")]
+              )
+            ])
+          ])
+        ])
+      ])
+    : _vm._e()
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Naam")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Amount")]),
+        _vm._v(" "),
+        _c("th", [_vm._v(" ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v(" ")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-9bd79182", module.exports)
+  }
+}
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(67)
+var __vue_script__ = __webpack_require__(68)
 /* template */
-var __vue_template__ = __webpack_require__(68)
+var __vue_template__ = __webpack_require__(69)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -17554,7 +17908,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\WitchDevicesOutside.vue"
+Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\WitchOutsideDevices.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -17563,9 +17917,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-f2257b86", Component.options)
+    hotAPI.createRecord("data-v-2ec3f0a6", Component.options)
   } else {
-    hotAPI.reload("data-v-f2257b86", Component.options)
+    hotAPI.reload("data-v-2ec3f0a6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -17576,12 +17930,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -17633,103 +17994,209 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.loadPage();
         }
     },
-    computed: {},
+    computed: {
+        outsideDevices: function outsideDevices() {
+            return this.$store.getters.getOutsideDevicesByHouse(this.houseId);
+        },
+        allRooms: function allRooms() {
+            return this.$store.getters.getRoomsByHouse(this.houseId);
+        }
+    },
     methods: {
-        loadPage: function loadPage() {},
-        lastPage: function lastPage() {},
-        nextPage: function nextPage() {}
+        loadPage: function loadPage() {
+            this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
+            this.$store.dispatch('loadOutsideDevicesByHouse', this.houseId);
+        },
+        addOutsideDevice: function addOutsideDevice() {
+            this.$store.commit('addEmptyOutsideDevice', this.houseId);
+        },
+        updateOutsideDevice: function updateOutsideDevice(outsideDevice) {
+            this.$store.commit('updateOutsideDevice', outsideDevice);
+        },
+        deleteOutsideDevice: function deleteOutsideDevice(OutsideDeviceId) {
+            this.$store.commit('deleteOutsideDevice', OutsideDeviceId);
+        },
+        lastPage: function lastPage() {
+            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/radiators/' + this.allRooms[this.allRooms.length - 1].id);
+        },
+        nextPage: function nextPage() {
+            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/outside/lights');
+        }
     },
     created: function created() {
-        //            todo show Loader
         this.loadPage();
     }
 });
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm.room
-    ? _c("div", { staticClass: "panel panel-default" }, [
-        _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "panel-footer" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-12" }, [
-              _c(
-                "a",
-                { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
-                [_vm._v("Vorige")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary pull-right",
-                  on: { click: _vm.nextPage }
-                },
-                [_vm._v("Volgende")]
-              )
-            ])
-          ])
-        ])
-      ])
-    : _vm._e()
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
-      [
-        _vm._v("\n        Welke apparaten bevinden zich buiten?\n        "),
-        _c("table", { staticClass: "table", staticStyle: { width: "100%" } }, [
-          _c("thead", [
-            _c("tr", [
-              _c("th", [_vm._v("Naam")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Amount")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(" ")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tbody", [
-            _c("tr", [_c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td")])
-          ])
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-f2257b86", module.exports)
-  }
-}
 
 /***/ }),
 /* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "panel panel-default" }, [
+    _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
+      [
+        _vm._v("\n        Welke apparaten bevinden zich buiten?\n        "),
+        _c("table", { staticClass: "table", staticStyle: { width: "100%" } }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.outsideDevices, function(outsideDevice) {
+              return _c("tr", [
+                _c("td", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: outsideDevice.name,
+                        expression: "outsideDevice.name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    domProps: { value: outsideDevice.name },
+                    on: {
+                      change: function($event) {
+                        _vm.updateOutsideDevice(outsideDevice)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(outsideDevice, "name", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: outsideDevice.amount,
+                        expression: "outsideDevice.amount"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "number" },
+                    domProps: { value: outsideDevice.amount },
+                    on: {
+                      change: function($event) {
+                        _vm.updateOutsideDevice(outsideDevice)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(outsideDevice, "amount", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    "\n                        cm lengte\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function($event) {
+                          _vm.deleteOutsideDevice(outsideDevice.id)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "far fa-trash-alt" })]
+                  )
+                ])
+              ])
+            })
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-primary pull-right",
+            on: { click: _vm.addOutsideDevice }
+          },
+          [_vm._v("Apperaat toevoegen")]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel-footer" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "a",
+            { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
+            [_vm._v("Vorige")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-primary pull-right",
+              on: { click: _vm.nextPage }
+            },
+            [_vm._v("Volgende")]
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Naam")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Amount")]),
+        _vm._v(" "),
+        _c("th", [_vm._v(" ")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2ec3f0a6", module.exports)
+  }
+}
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(70)
+var __vue_script__ = __webpack_require__(71)
 /* template */
-var __vue_template__ = __webpack_require__(71)
+var __vue_template__ = __webpack_require__(72)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -17746,7 +18213,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\WitchLightsOutside.vue"
+Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\WitchOutsideLights.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -17755,9 +18222,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4572b3ba", Component.options)
+    hotAPI.createRecord("data-v-494eb47d", Component.options)
   } else {
-    hotAPI.reload("data-v-4572b3ba", Component.options)
+    hotAPI.reload("data-v-494eb47d", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -17768,12 +18235,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -17825,82 +18300,185 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.loadPage();
         }
     },
-    computed: {},
+    computed: {
+        outsideLights: function outsideLights() {
+            return this.$store.getters.getOutsideLightsByHouse(this.houseId);
+        }
+    },
     methods: {
-        loadPage: function loadPage() {},
-        lastPage: function lastPage() {},
-        nextPage: function nextPage() {}
+        loadPage: function loadPage() {
+            this.$store.dispatch('loadOutsideLightsByHouse', this.houseId);
+        },
+        addOutsideLight: function addOutsideLight() {
+            this.$store.commit('addEmptyOutsideLight', this.houseId);
+        },
+        updateOutsideLight: function updateOutsideLight(outsideLight) {
+            this.$store.commit('updateOutsideLight', outsideLight);
+        },
+        deleteOutsideLight: function deleteOutsideLight(OutsideLightId) {
+            this.$store.commit('deleteOutsideLight', OutsideLightId);
+        },
+        lastPage: function lastPage() {
+            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/outside/devices');
+        },
+        nextPage: function nextPage() {
+            console.log('load next page');
+            //                TODO load next page
+        }
     },
     created: function created() {
-        //            todo show Loader
         this.loadPage();
     }
 });
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.room
-    ? _c("div", { staticClass: "panel panel-default" }, [
-        _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
+  return _c("div", { staticClass: "panel panel-default" }, [
+    _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
+      [
+        _vm._v("\n        Welke lichten bevinden zich buiten?\n        "),
+        _c("table", { staticClass: "table", staticStyle: { width: "100%" } }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.outsideLights, function(outsideLight) {
+              return _c("tr", [
+                _c("td", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: outsideLight.name,
+                        expression: "outsideLight.name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    domProps: { value: outsideLight.name },
+                    on: {
+                      change: function($event) {
+                        _vm.updateOutsideLight(outsideLight)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(outsideLight, "name", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: outsideLight.amount,
+                        expression: "outsideLight.amount"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "number" },
+                    domProps: { value: outsideLight.amount },
+                    on: {
+                      change: function($event) {
+                        _vm.updateOutsideLight(outsideLight)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(outsideLight, "amount", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v("\n                    Watt\n                ")
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function($event) {
+                          _vm.deleteOutsideLight(outsideLight.id)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "far fa-trash-alt" })]
+                  )
+                ])
+              ])
+            })
+          )
+        ]),
         _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "panel-footer" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-12" }, [
-              _c(
-                "a",
-                { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
-                [_vm._v("Vorige")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary pull-right",
-                  on: { click: _vm.nextPage }
-                },
-                [_vm._v("Volgende")]
-              )
-            ])
-          ])
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-primary pull-right",
+            on: { click: _vm.addOutsideLight }
+          },
+          [_vm._v("Light toevoegen")]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel-footer" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c(
+            "a",
+            { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
+            [_vm._v("Vorige")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-primary pull-right",
+              on: { click: _vm.nextPage }
+            },
+            [_vm._v("Volgende")]
+          )
         ])
       ])
-    : _vm._e()
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
-      [
-        _vm._v("\n        Welke verlichting bevint zich buiten?\n        "),
-        _c("table", { staticClass: "table", staticStyle: { width: "100%" } }, [
-          _c("thead", [
-            _c("tr", [
-              _c("th", [_vm._v("Naam")]),
-              _vm._v(" "),
-              _c("th", [_vm._v("Amount")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(" ")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tbody", [
-            _c("tr", [_c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td")])
-          ])
-        ])
-      ]
-    )
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Naam")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Amount")]),
+        _vm._v(" "),
+        _c("th", [_vm._v(" ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v(" ")])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -17908,28 +18486,50 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4572b3ba", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-494eb47d", module.exports)
   }
 }
 
 /***/ }),
-/* 72 */
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "app" }, [_c("router-view")], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-117390fa", module.exports)
+  }
+}
+
+/***/ }),
+/* 74 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_axios__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_house__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_floors__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modules_rooms__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modules_devices__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modules_lights__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modules_radiators__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modules_rooms__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modules_devices__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modules_lights__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modules_radiators__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__modules_outsideDevices__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__modules_outsideLights__ = __webpack_require__(81);
 
 
 
@@ -17948,6 +18548,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 
 
+
+
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     modules: {
         house: __WEBPACK_IMPORTED_MODULE_4__modules_house__["a" /* default */],
@@ -17955,7 +18557,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         rooms: __WEBPACK_IMPORTED_MODULE_6__modules_rooms__["a" /* default */],
         devices: __WEBPACK_IMPORTED_MODULE_7__modules_devices__["a" /* default */],
         lights: __WEBPACK_IMPORTED_MODULE_8__modules_lights__["a" /* default */],
-        radiators: __WEBPACK_IMPORTED_MODULE_9__modules_radiators__["a" /* default */]
+        radiators: __WEBPACK_IMPORTED_MODULE_9__modules_radiators__["a" /* default */],
+        outsideDevices: __WEBPACK_IMPORTED_MODULE_10__modules_outsideDevices__["a" /* default */],
+        outsideLights: __WEBPACK_IMPORTED_MODULE_11__modules_outsideLights__["a" /* default */]
     }
 }));
 
@@ -18046,7 +18650,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 // })
 
 /***/ }),
-/* 73 */
+/* 75 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18991,7 +19595,7 @@ var index_esm = {
 
 
 /***/ }),
-/* 74 */
+/* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19125,7 +19729,7 @@ var index_esm = {
 });
 
 /***/ }),
-/* 75 */
+/* 77 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19177,6 +19781,16 @@ var index_esm = {
                     _this3.commit('setDevice', response.data);
                 });
             }
+        },
+        deleteDevice: function deleteDevice(state, deviceId) {
+            var deviceExists = state.devices.find(function (deviceSearch) {
+                return deviceSearch.id == deviceId;
+            });
+            if (deviceExists !== undefined) {
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.delete('/api/device/' + deviceId).then(function (response) {
+                    state.devices.splice(state.devices.indexOf(deviceExists), 1);
+                });
+            }
         }
     },
     actions: {
@@ -19201,7 +19815,7 @@ var index_esm = {
 });
 
 /***/ }),
-/* 76 */
+/* 78 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19252,6 +19866,16 @@ var index_esm = {
                     _this3.commit('setLight', response.data);
                 });
             }
+        },
+        deleteLight: function deleteLight(state, lightId) {
+            var lightExists = state.lights.find(function (lightSearch) {
+                return lightSearch.id == lightId;
+            });
+            if (lightExists !== undefined) {
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.delete('/api/light/' + lightId).then(function (response) {
+                    state.lights.splice(state.lights.indexOf(lightExists), 1);
+                });
+            }
         }
     },
     actions: {
@@ -19276,7 +19900,7 @@ var index_esm = {
 });
 
 /***/ }),
-/* 77 */
+/* 79 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19327,6 +19951,16 @@ var index_esm = {
                     _this3.commit('setRadiator', response.data);
                 });
             }
+        },
+        deleteRadiator: function deleteRadiator(state, radiatorId) {
+            var radiatorExists = state.radiators.find(function (radiatorSearch) {
+                return radiatorSearch.id == radiatorId;
+            });
+            if (radiatorExists !== undefined) {
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.delete('/api/radiator/' + radiatorId).then(function (response) {
+                    state.radiators.splice(state.radiators.indexOf(radiatorExists), 1);
+                });
+            }
         }
     },
     actions: {
@@ -19351,293 +19985,175 @@ var index_esm = {
 });
 
 /***/ }),
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */
+/* 80 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(4);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 
 
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId),
-            roomId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.roomId)
-        };
+/* harmony default export */ __webpack_exports__["a"] = ({
+    state: {
+        outsideDevices: []
     },
+    mutations: {
+        setOutsideDevices: function setOutsideDevices(state, outsideDevices) {
+            var _this = this;
 
-    watch: {
-        '$route': function $route(to, from) {
-            this.houseId = parseInt(to.params.houseId);
-            this.roomId = parseInt(to.params.roomId);
-            this.loadPage();
-        }
-    },
-    computed: {
-        houseFloors: function houseFloors() {
-            return this.$store.getters.getFloorsByHouse(this.houseId);
+            outsideDevices.forEach(function (outsideDevice) {
+                _this.commit('setOutsideDevice', outsideDevice);
+            });
         },
-        storey: function storey() {
-            return this.houseFloors.indexOf(this.floor) + 1;
+        setOutsideDevice: function setOutsideDevice(state, outsideDevice) {
+            var outsideDeviceExists = state.outsideDevices.find(function (outsideDeviceSearch) {
+                return outsideDeviceSearch.id == outsideDevice.id;
+            });
+            if (outsideDeviceExists !== undefined) {
+                state.outsideDevices.splice(state.outsideDevices.indexOf(outsideDeviceExists), 1);
+            }
+            state.outsideDevices.push(outsideDevice);
         },
-        allRooms: function allRooms() {
-            return this.$store.getters.getRoomsByHouse(this.houseId);
+        addEmptyOutsideDevice: function addEmptyOutsideDevice(state, houseId) {
+            var _this2 = this;
+
+            // TODO set sort
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.post('/api/outside/device', {
+                house_id: houseId,
+                amount: 0
+            }).then(function (response) {
+                _this2.commit('setOutsideDevice', response.data);
+            });
         },
-        room: function room() {
-            return this.$store.getters.getRoom(this.roomId);
-        },
-        floor: function floor() {
-            if (this.room) {
-                return this.$store.getters.findFloor(this.room.floor_id);
+        updateOutsideDevice: function updateOutsideDevice(state, outsideDevice) {
+            var _this3 = this;
+
+            var outsideDeviceExists = state.outsideDevices.find(function (outsideDeviceSearch) {
+                return outsideDeviceSearch.id == outsideDevice.id;
+            });
+            if (outsideDeviceExists !== undefined) {
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.put('/api/outside/device/' + outsideDevice.id, outsideDevice).then(function (response) {
+                    console.log(response);
+                    _this3.commit('setOutsideDevice', response.data);
+                });
             }
         },
-        radiators: function radiators() {
-            return this.$store.getters.getRadiatorsByRoom(this.roomId);
-        }
-    },
-    methods: {
-        loadPage: function loadPage() {
-            this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
-            this.$store.dispatch('loadRadiatorsByRoom', this.roomId);
-            this.$store.dispatch('loadRoom', this.roomId);
-        },
-        addRadiator: function addRadiator() {
-            this.$store.commit('addEmptyRadiator', this.roomId);
-        },
-        updateRadiator: function updateRadiator(light) {
-            this.$store.commit('updateRadiator', light);
-        },
-        nextPage: function nextPage() {
-            var index = this.allRooms.indexOf(this.room);
-            if (this.allRooms[index + 1]) {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/radiators/' + this.allRooms[index + 1].id);
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/lights/' + this.allRooms[this.allRooms.length - 1].id);
-            }
-        },
-        lastPage: function lastPage() {
-            var index = this.allRooms.indexOf(this.room);
-            if (index <= 0) {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/devices/outside');
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/radiators/' + this.allRooms[index - 1].id);
+        deleteOutsideDevice: function deleteOutsideDevice(state, outsideDeviceId) {
+            var outsideDeviceExists = state.outsideDevices.find(function (outsideDeviceSearch) {
+                return outsideDeviceSearch.id == outsideDeviceId;
+            });
+            if (outsideDeviceExists !== undefined) {
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.delete('/api/outside/device/' + outsideDeviceId).then(function (response) {
+                    state.outsideDevices.splice(state.outsideDevices.indexOf(outsideDeviceExists), 1);
+                });
             }
         }
     },
-    created: function created() {
-        //            todo show Loader
-        this.loadPage();
+    actions: {
+        loadOutsideDevicesByHouse: function loadOutsideDevicesByHouse(state, houseId) {
+            var _this4 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/outside/device/' + houseId + '/house').then(function (response) {
+                _this4.commit('setOutsideDevices', response.data);
+            });
+        }
+    },
+    getters: {
+        getOutsideDevicesByHouse: function getOutsideDevicesByHouse(state) {
+            return function (houseId) {
+                // todo sort
+                return state.outsideDevices.filter(function (outsideDevice) {
+                    return outsideDevice.house_id == houseId;
+                });
+            };
+        }
     }
 });
 
 /***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 81 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm.room
-    ? _c("div", { staticClass: "panel panel-default" }, [
-        _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
-          [
-            _vm._v(
-              "\n        Welke radiatoren bevint zich in de " +
-                _vm._s(_vm.room.name ? _vm.room.name : "") +
-                " op de " +
-                _vm._s(_vm.storey) +
-                "e verdieping?\n        "
-            ),
-            _c(
-              "table",
-              { staticClass: "table", staticStyle: { width: "100%" } },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.radiators, function(radiator) {
-                    return _c("tr", [
-                      _c("td", [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: radiator.name,
-                              expression: "radiator.name"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          domProps: { value: radiator.name },
-                          on: {
-                            change: function($event) {
-                              _vm.updateRadiator(radiator)
-                            },
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(radiator, "name", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: radiator.length,
-                              expression: "radiator.length"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "number" },
-                          domProps: { value: radiator.length },
-                          on: {
-                            change: function($event) {
-                              _vm.updateRadiator(radiator)
-                            },
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(radiator, "length", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(
-                          "\n                    cm lengte\n                "
-                        )
-                      ])
-                    ])
-                  })
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-primary pull-right",
-                on: { click: _vm.addRadiator }
-              },
-              [_vm._v("Verlichting toevoegen")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "panel-footer" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-12" }, [
-              _c(
-                "a",
-                { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
-                [_vm._v("Vorige")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary pull-right",
-                  on: { click: _vm.nextPage }
-                },
-                [_vm._v("Volgende")]
-              )
-            ])
-          ])
-        ])
-      ])
-    : _vm._e()
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Amount")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-9bd79182", module.exports)
-  }
-}
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    state: {
+        outsideLights: []
+    },
+    mutations: {
+        setOutsideLights: function setOutsideLights(state, outsideLights) {
+            var _this = this;
+
+            outsideLights.forEach(function (outsideLight) {
+                _this.commit('setOutsideLight', outsideLight);
+            });
+        },
+        setOutsideLight: function setOutsideLight(state, outsideLight) {
+            var outsideLightExists = state.outsideLights.find(function (outsideLightSearch) {
+                return outsideLightSearch.id == outsideLight.id;
+            });
+            if (outsideLightExists !== undefined) {
+                state.outsideLights.splice(state.outsideLights.indexOf(outsideLightExists), 1);
+            }
+            state.outsideLights.push(outsideLight);
+        },
+        addEmptyOutsideLight: function addEmptyOutsideLight(state, houseId) {
+            var _this2 = this;
+
+            // TODO set sort
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.post('/api/outside/light', {
+                house_id: houseId,
+                amount: 0
+            }).then(function (response) {
+                _this2.commit('setOutsideLight', response.data);
+            });
+        },
+        updateOutsideLight: function updateOutsideLight(state, outsideLight) {
+            var _this3 = this;
+
+            var outsideLightExists = state.outsideLights.find(function (outsideLightSearch) {
+                return outsideLightSearch.id == outsideLight.id;
+            });
+            if (outsideLightExists !== undefined) {
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.put('/api/outside/light/' + outsideLight.id, outsideLight).then(function (response) {
+                    _this3.commit('setOutsideLight', response.data);
+                });
+            }
+        },
+        deleteOutsideLight: function deleteOutsideLight(state, outsideLightId) {
+            var outsideLightsExists = state.outsideLights.find(function (outsideLightsSearch) {
+                return outsideLightsSearch.id == outsideLightId;
+            });
+            if (outsideLightsExists !== undefined) {
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.delete('/api/outside/light/' + outsideLightId).then(function (response) {
+                    state.outsideLights.splice(state.outsideLights.indexOf(outsideLightsExists), 1);
+                });
+            }
+        }
+    },
+    actions: {
+        loadOutsideLightsByHouse: function loadOutsideLightsByHouse(state, houseId) {
+            var _this4 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/outside/light/' + houseId + '/house').then(function (response) {
+                _this4.commit('setOutsideLights', response.data);
+            });
+        }
+    },
+    getters: {
+        getOutsideLightsByHouse: function getOutsideLightsByHouse(state) {
+            return function (houseId) {
+                // todo sort
+                return state.outsideLights.filter(function (outsideLight) {
+                    return outsideLight.house_id == houseId;
+                });
+            };
+        }
+    }
+});
 
 /***/ })
 /******/ ]);

@@ -34,6 +34,14 @@ export default {
                 });
             }
         },
+        deleteRadiator(state, radiatorId) {
+            let radiatorExists = state.radiators.find(radiatorSearch => radiatorSearch.id == radiatorId);
+            if (radiatorExists !== undefined) {
+                Vue.axios.delete('/api/radiator/' + radiatorId).then((response) => {
+                    state.radiators.splice(state.radiators.indexOf(radiatorExists), 1);
+                });
+            }
+        }
     },
     actions: {
         loadRadiatorsByRoom(state, roomId) {

@@ -7,6 +7,7 @@
         <div class="panel-footer">
             <div class="row">
                 <div class="col-lg-12">
+                    <a @click="lastPage" class="btn btn-danger">Vorige</a>
                     <a @click="saveRoomCount" class="btn btn-primary pull-right">Volgende</a>
                 </div>
             </div>
@@ -21,14 +22,13 @@
         data() {
             return {
                 floorCountEdit: null,
+                houseId: parseInt(router.currentRoute.params.houseId)
             }
         },
         computed: {
             floorCount: {
                 get () {
-                    // #todo load id by url
-                    var floorCount = this.$store.getters.getFloorsByHouse(1).length;
-                    return this.floorCountEdit = floorCount;
+                    return this.floorCountEdit = this.$store.getters.getFloorsByHouse(this.houseId).length;
                 },
                 set(value) {
                     this.floorCountEdit = value;
@@ -36,10 +36,16 @@
             }
         },
         methods: {
+            lastPage() {
+                router.push('/home');
+            },
             saveRoomCount() {
-                this.$store.commit('updateFloorsByCount', this.floorCountEdit);
-                // #todo load id by url Load first floor
-                router.push('/house/1/floor/4');
+                this.$store.commit('updateFloorsByCount', {'floorCount': this.floorCountEdit, 'houseId': this.houseId});
+                // TODO PROMISE instead of timeout
+                setTimeout(() => {
+                    router.push('/house/' + this.houseId + '/floor/' + this.$store.getters.getFloorsByHouse(this.houseId)[0].id);
+                }, 300);
+
             }
         }
     }

@@ -9,6 +9,7 @@
                     <th>Naam</th>
                     <th>Amount</th>
                     <th>&nbsp;</th>
+                    <th>&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@
                     <td>
                         cm lengte
                     </td>
+                    <td><a class="btn btn-danger" @click="deleteRadiator(radiator.id)"><i class="far fa-trash-alt"></i></a></td>
                 </tr>
                 </tbody>
             </table>
@@ -90,25 +92,27 @@
             updateRadiator(light) {
                 this.$store.commit('updateRadiator', light);
             },
+            deleteRadiator(radiatorId) {
+                this.$store.commit('deleteRadiator', radiatorId);
+            },
             nextPage() {
                 let index = this.allRooms.indexOf(this.room);
                 if (this.allRooms[index + 1]) {
                     router.push('/house/' + this.houseId + '/radiators/' + this.allRooms[index + 1].id);
                 } else {
-                    router.push('/house/' + this.houseId + '/lights/' + this.allRooms[this.allRooms.length - 1].id);
+                    router.push('/house/' + this.houseId + '/outside/devices');
                 }
             },
             lastPage() {
                 let index = this.allRooms.indexOf(this.room);
                 if (index <= 0) {
-                    router.push('/house/' + this.houseId + '/devices/outside');
+                    router.push('/house/' + this.houseId + '/lights/' + this.allRooms[this.allRooms.length - 1].id);
                 } else {
                     router.push('/house/' + this.houseId + '/radiators/' + this.allRooms[index - 1].id);
                 }
             }
         },
         created() {
-//            todo show Loader
             this.loadPage();
         }
     }

@@ -9,12 +9,17 @@ import WitchRooms from '../components/house/questions/WitchRooms'
 import WitchDevices from '../components/house/questions/WitchDevices'
 import WitchLights from '../components/house/questions/WitchLights.vue'
 import WitchRadiator from '../components/house/questions/WitchRadiator.vue'
-import WitchDevicesOutside from '../components/house/questions/WitchDevicesOutside.vue'
-import WitchLightsOutside from '../components/house/questions/WitchLightsOutside.vue'
+import WitchOutsideDevices from '../components/house/questions/WitchOutsideDevices.vue'
+import WitchOutsideLights from '../components/house/questions/WitchOutsideLights.vue'
 
 export default new Router({
     mode: 'history',
     routes: [
+        {
+            name: 'home',
+            path: '/home',
+            component: Houses
+        },
         {
             name: 'houseFloorCount',
             path: '/house/:houseId/floors',
@@ -42,13 +47,13 @@ export default new Router({
         },
         {
             name: 'houseDevicesOutside',
-            path: '/house/:houseId/devices/outside',
-            component: WitchDevicesOutside,
+            path: '/house/:houseId/outside/devices',
+            component: WitchOutsideDevices,
         },
         {
             name: 'houseLightsOutside',
-            path: '/house/:houseId/lights/outside',
-            component: WitchLightsOutside,
+            path: '/house/:houseId/outside/lights',
+            component: WitchOutsideLights,
         },
     ]
 })

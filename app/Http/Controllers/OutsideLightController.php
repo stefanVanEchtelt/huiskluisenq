@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\House;
+use App\OutsideLight;
 use Illuminate\Http\Request;
 
-class HouseController extends Controller
+class OutsideLightController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class HouseController extends Controller
      */
     public function index()
     {
-        return response()->json(
-            House::all()
-        );
+        //
     }
 
     /**
@@ -38,30 +36,30 @@ class HouseController extends Controller
     public function store(Request $request)
     {
         return response()->json(
-            House::create($request->all())
+            OutsideLight::create($request->all())
         );
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\House  $house
+     * @param  \App\OutsideLight  $outsideLight
      * @return \Illuminate\Http\Response
      */
-    public function show(House $house)
+    public function show(OutsideLight $outsideLight)
     {
         return response()->json(
-            $house
+            $outsideLight
         );
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\House  $house
+     * @param  \App\OutsideLight  $outsideLight
      * @return \Illuminate\Http\Response
      */
-    public function edit(House $house)
+    public function edit(OutsideLight $outsideLight)
     {
         //
     }
@@ -70,22 +68,37 @@ class HouseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\House  $house
+     * @param  \App\OutsideLight  $outsideLight
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, House $house)
+    public function update(Request $request, OutsideLight $outsideLight)
     {
-        //
+        return response()->json(
+            $outsideLight->update($request->all())
+        );
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\House  $house
+     * @param  \App\OutsideLight  $outsideLight
      * @return \Illuminate\Http\Response
      */
-    public function destroy(House $house)
+    public function destroy(OutsideLight $outsideLight)
     {
-        //
+        return response()->json(
+            $outsideLight->delete()
+        );
+    }
+
+    /**
+     * @param int $houseId
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getByHouse(int $houseId)
+    {
+        return response()->json(
+            OutsideLight::where('house_id', $houseId)->get()
+        );
     }
 }
