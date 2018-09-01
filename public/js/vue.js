@@ -13035,7 +13035,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
             var _this = this;
 
             __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.post('/api/house', {
-                user_id: 2
+                user_id: CONFIG.USER_ID
             }).then(function (response) {
                 __WEBPACK_IMPORTED_MODULE_1__router__["a" /* default */].push('/house/' + response.data.id + '/floors');
                 _this.commit('setHouse', response.data);
@@ -13533,8 +13533,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     mounted: function mounted() {
-        this.$store.dispatch('loadHouse', this.houseId);
-        this.$store.dispatch('loadFloors', this.houseId);
+        if (this.houseId) {
+            this.$store.dispatch('loadHouse', this.houseId);
+            this.$store.dispatch('loadFloors', this.houseId);
+        }
     }
 });
 

@@ -14,8 +14,10 @@
             }
         },
         mounted() {
-            this.$store.dispatch('loadHouse', this.houseId);
-            this.$store.dispatch('loadFloors', this.houseId);
+            if (this.houseId) {
+                this.$store.dispatch('loadHouse', this.houseId);
+                this.$store.dispatch('loadFloors', this.houseId);
+            }
         }
     }
 </script>

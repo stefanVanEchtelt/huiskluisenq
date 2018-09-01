@@ -80,6 +80,15 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/vue.js') }}"></script>
+
+    <script>
+        const CONFIG = {};
+
+        @if ( Auth::check() )
+            CONFIG.USER_ID = '{{ Auth::user()->id }}';
+        @endif
+    </script>
+
     @yield('scripts')
 </body>
 </html>
