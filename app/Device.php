@@ -16,4 +16,12 @@ class Device extends Model
         'type_id',
         'sort'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import Room from './rooms'
+import Floor from './floors'
 
 export default {
     state: {
@@ -48,12 +50,28 @@ export default {
             Vue.axios.get('/api/radiator/' + roomId + '/room').then((response) => {
                 this.commit('setRadiators', response.data);
             });
+        },
+        loadRadiatorsByHouse(state, houseId) {
+            Vue.axios.get('/api/radiator/' + houseId + '/house').then((response) => {
+                this.commit('setRadiators', response.data);
+            });
         }
     },
     getters: {
         getRadiatorsByRoom: (state) => (roomId) => {
             // todo sort check if needed
             return state.radiators.filter(radiator => radiator.room_id == roomId);
+        },
+        getRadiatorsByHouse: (state) => (houseId) => {
+            return state.radiators.filter(
+                radiator => {
+                    let room = Room.getters.getRoom(Room.state, radiator.room_id);
+                    let floor = Floor.getters.findFloor(Floor.state, room.floor_id);
+                    if (floor && floor != undefined) {
+                        return floor.house_id == houseId;
+                    }
+                }
+            );
         }
     }
 }

@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::post('/api/house', 'HouseController@store');
 Route::resource('/api/house', 'HouseController');
+Route::get('/api/house/{house}/load/full', 'HouseController@loadWithRelations');
 
 Route::resource('/api/floor', 'FloorController');
 Route::get('/api/house/{id}/floors', 'FloorController@getFloorsByHouse');
@@ -35,12 +36,15 @@ Route::get('/api/house/{id}/rooms', 'RoomController@getAllByHouse');
 
 Route::resource('/api/device', 'DeviceController');
 Route::get('/api/device/{roomId}/room', 'DeviceController@getByRoom');
+Route::get('/api/device/{houseId}/house', 'DeviceController@getByHouse');
 
 Route::resource('/api/light', 'LightController');
 Route::get('/api/light/{roomId}/room', 'LightController@getByRoom');
+Route::get('/api/light/{houseId}/house', 'LightController@getByHouse');
 
 Route::resource('/api/radiator', 'RadiatorController');
 Route::get('/api/radiator/{roomId}/room', 'RadiatorController@getByRoom');
+Route::get('/api/radiator/{houseId}/house', 'RadiatorController@getByHouse');
 
 Route::get('/api/outside/device', 'OutsideDeviceController@index');
 Route::get('/api/outside/device', 'OutsideDeviceController@create');

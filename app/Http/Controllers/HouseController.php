@@ -88,4 +88,19 @@ class HouseController extends Controller
     {
         //
     }
+
+    public function loadWithRelations(House $house)
+    {
+        return response()->json(
+            $house->load([
+                'outsideDevices',
+                'outsideLights',
+                'floors',
+                'floors.rooms',
+                'floors.rooms.devices',
+                'floors.rooms.lights',
+                'floors.rooms.radiators'
+            ])
+        );
+    }
 }

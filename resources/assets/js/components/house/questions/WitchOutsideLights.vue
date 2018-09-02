@@ -78,8 +78,7 @@
                 router.push('/house/' + this.houseId + '/outside/devices');
             },
             nextPage() {
-                console.log('load next page');
-//                TODO load next page
+                router.push('/house/' + this.houseId + '/overview');
             }
         },
         created() {

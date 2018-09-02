@@ -43,6 +43,8 @@
 
 <script>
     import router from '../../../router'
+    import Floor from '../../../store/modules/floors'
+    import Room from '../../../store/modules/rooms'
 
     export default {
         data() {
@@ -69,11 +71,11 @@
                 return this.$store.getters.getRoomsByHouse(this.houseId);
             },
             room() {
-                return this.$store.getters.getRoom(this.roomId);
+                return Room.getters.getRoom(Room.state, this.roomId);
             },
             floor() {
                 if (this.room) {
-                    return this.$store.getters.findFloor(this.room.floor_id);
+                    return Floor.getters.findFloor(Floor.state, this.room.floor_id);
                 }
             },
             radiators() {
