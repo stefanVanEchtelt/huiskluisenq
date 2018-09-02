@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <title>Login</title>
+    <title>Huiskluis Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -15,7 +15,7 @@
     {{--TODO FIX THIS--}}
     <style>
         body {
-            background-image: url('/img/login//pic3.jpg');
+            background-image: url('/img/login//pic4.png');
             height: 100vh;
             background-size: cover;
             background-position: center;
@@ -26,12 +26,12 @@
             margin: auto;
         }
 
-        .register-page {
-            width: 1200px;
-            padding: 6.5% 0 0;
-            margin: auto;
-            height: 700px;
-        }
+        /*.register-page {*/
+            /*width: 1200px;*/
+            /*padding: 6.5% 0 0;*/
+            /*margin: auto;*/
+            /*height: 700px;*/
+        /*}*/
 
         .form {
             position: relative;
@@ -74,10 +74,10 @@
             color: white;
         }
 
-        .login {
-            width: 370px;
-            position: absolute;
-        }
+        /*.login {*/
+            /*width: 370px;*/
+            /*position: absolute;*/
+        /*}*/
 
         .register {
             width: 370px;
