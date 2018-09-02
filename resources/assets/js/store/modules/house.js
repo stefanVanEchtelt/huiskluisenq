@@ -15,7 +15,7 @@ export default {
         },
         addHouse(state) {
             Vue.axios.post('/api/house', {
-                user_id: CONFIG.USER_IDw
+                user_id: CONFIG.USER_ID
             }).then((response) => {
                 router.push('/house/' + response.data.id + '/floors');
                 this.commit('setHouse', response.data);

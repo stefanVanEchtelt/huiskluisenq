@@ -13042,7 +13042,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
             var _this = this;
 
             __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.post('/api/house', {
-                user_id: CONFIG.USER_IDw
+                user_id: CONFIG.USER_ID
             }).then(function (response) {
                 __WEBPACK_IMPORTED_MODULE_1__router__["a" /* default */].push('/house/' + response.data.id + '/floors');
                 _this.commit('setHouse', response.data);
