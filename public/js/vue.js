@@ -11341,81 +11341,6 @@ module.exports = Vue;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_house_Houses__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue__);
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-
-
-
-
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-    mode: 'history',
-    routes: [{
-        name: 'home',
-        path: '/home',
-        component: __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default.a
-    }, {
-        name: 'houseFloorCount',
-        path: '/house/:houseId/floors',
-        component: __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default.a
-    }, {
-        name: 'houseFloor',
-        path: '/house/:houseId/floor/:floorId',
-        component: __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default.a
-    }, {
-        name: 'houseRoomDevices',
-        path: '/house/:houseId/devices/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default.a
-    }, {
-        name: 'houseRoomLights',
-        path: '/house/:houseId/lights/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default.a
-    }, {
-        name: 'houseRoomRadiators',
-        path: '/house/:houseId/radiators/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default.a
-    }, {
-        name: 'houseDevicesOutside',
-        path: '/house/:houseId/outside/devices',
-        component: __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue___default.a
-    }, {
-        name: 'houseLightsOutside',
-        path: '/house/:houseId/outside/lights',
-        component: __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue___default.a
-    }]
-}));
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -11522,6 +11447,88 @@ module.exports = function normalizeComponent (
   }
 }
 
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_house_Houses__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview__);
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+
+
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+    mode: 'history',
+    routes: [{
+        name: 'home',
+        path: '/home',
+        component: __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default.a
+    }, {
+        name: 'houseFloorCount',
+        path: '/house/:houseId/floors',
+        component: __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default.a
+    }, {
+        name: 'houseFloor',
+        path: '/house/:houseId/floor/:floorId',
+        component: __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default.a
+    }, {
+        name: 'houseRoomDevices',
+        path: '/house/:houseId/devices/:roomId',
+        component: __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default.a
+    }, {
+        name: 'houseRoomLights',
+        path: '/house/:houseId/lights/:roomId',
+        component: __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default.a
+    }, {
+        name: 'houseRoomRadiators',
+        path: '/house/:houseId/radiators/:roomId',
+        component: __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default.a
+    }, {
+        name: 'houseDevicesOutside',
+        path: '/house/:houseId/outside/devices',
+        component: __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue___default.a
+    }, {
+        name: 'houseLightsOutside',
+        path: '/house/:houseId/outside/lights',
+        component: __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue___default.a
+    }, {
+        name: 'houseOverview',
+        path: '/house/:houseId/overview',
+        component: __WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview___default.a
+    }]
+}));
 
 /***/ }),
 /* 4 */
@@ -13013,7 +13020,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router__ = __webpack_require__(3);
 
 
 
@@ -13131,13 +13138,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
     },
 
     getters: {
-        findFloor: function findFloor(state) {
-            return function (floorId) {
-                return state.floors.find(function (floorSearch) {
-                    return floorSearch.id == floorId;
-                });
-            };
+        findFloor: function findFloor(state, floorId) {
+            return state.floors.find(function (floorSearch) {
+                return floorSearch.id == floorId;
+            });
         },
+
 
         getFloorsByHouse: function getFloorsByHouse(state) {
             return function (houseId) {
@@ -13176,8 +13182,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_App__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_App___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_App__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_axios__ = __webpack_require__(31);
@@ -13468,11 +13474,11 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(47)
 /* template */
-var __vue_template__ = __webpack_require__(73)
+var __vue_template__ = __webpack_require__(76)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -13516,7 +13522,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 //
 //
 //
@@ -16175,7 +16181,7 @@ if (inBrowser && window.Vue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(50)
 /* template */
@@ -16284,7 +16290,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(53)
 /* template */
@@ -16332,7 +16338,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 //
 //
 //
@@ -16464,7 +16470,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(56)
 /* template */
@@ -16512,7 +16518,8 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(33);
 //
 //
 //
@@ -16555,6 +16562,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -16578,7 +16586,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.$store.getters.getFloorsByHouse(this.houseId);
         },
         floor: function floor() {
-            return this.$store.getters.findFloor(this.floorId);
+            return __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].state, this.floorId);
         },
         storey: function storey() {
             if (this.houseFloors && this.floor) {
@@ -16797,7 +16805,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(59)
 /* template */
@@ -16845,7 +16853,9 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__ = __webpack_require__(79);
 //
 //
 //
@@ -16895,6 +16905,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+
 
 
 
@@ -16924,11 +16936,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.$store.getters.getRoomsByHouse(this.houseId);
         },
         room: function room() {
-            return this.$store.getters.getRoom(this.roomId);
+            return __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].getters.getRoom(__WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].state, this.roomId);
         },
         floor: function floor() {
             if (this.room) {
-                return this.$store.getters.findFloor(this.room.floor_id);
+                return __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].state, this.room.floor_id);
             }
         },
         devices: function devices() {
@@ -17197,7 +17209,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(62)
 /* template */
@@ -17245,7 +17257,9 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__ = __webpack_require__(79);
 //
 //
 //
@@ -17289,6 +17303,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+
 
 
 
@@ -17318,11 +17334,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.$store.getters.getRoomsByHouse(this.houseId);
         },
         room: function room() {
-            return this.$store.getters.getRoom(this.roomId);
+            return __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].getters.getRoom(__WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].state, this.roomId);
         },
         floor: function floor() {
             if (this.room) {
-                return this.$store.getters.findFloor(this.room.floor_id);
+                return __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].state, this.room.floor_id);
             }
         },
         lights: function lights() {
@@ -17542,7 +17558,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(65)
 /* template */
@@ -17590,7 +17606,9 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__ = __webpack_require__(79);
 //
 //
 //
@@ -17634,6 +17652,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+
 
 
 
@@ -17663,11 +17683,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.$store.getters.getRoomsByHouse(this.houseId);
         },
         room: function room() {
-            return this.$store.getters.getRoom(this.roomId);
+            return __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].getters.getRoom(__WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].state, this.roomId);
         },
         floor: function floor() {
             if (this.room) {
-                return this.$store.getters.findFloor(this.room.floor_id);
+                return __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].state, this.room.floor_id);
             }
         },
         radiators: function radiators() {
@@ -17889,7 +17909,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(68)
 /* template */
@@ -17937,7 +17957,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 //
 //
 //
@@ -18194,7 +18214,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(71)
 /* template */
@@ -18242,7 +18262,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 //
 //
 //
@@ -18324,8 +18344,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/outside/devices');
         },
         nextPage: function nextPage() {
-            console.log('load next page');
-            //                TODO load next page
+            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/overview');
         }
     },
     created: function created() {
@@ -18496,6 +18515,400 @@ if (false) {
 /* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(74)
+/* template */
+var __vue_template__ = __webpack_require__(75)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\house\\HouseOverview.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-96676854", Component.options)
+  } else {
+    hotAPI.reload("data-v-96676854", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            loading: true,
+            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId)
+        };
+    },
+
+    watch: {
+        '$route': function $route(to, from) {
+            this.houseId = parseInt(to.params.houseId);
+            this.loadPage();
+        }
+    },
+    computed: {
+        allRooms: function allRooms() {
+            return this.$store.getters.getRoomsByHouse(this.houseId);
+        },
+        houseDevices: function houseDevices() {
+            return this.$store.getters.getDevicesByHouse(this.houseId);
+        },
+        houseLights: function houseLights() {
+            return this.$store.getters.getLightsByHouse(this.houseId);
+        },
+        houseRadiators: function houseRadiators() {
+            return this.$store.getters.getRadiatorsByHouse(this.houseId);
+        }
+    },
+    methods: {
+        loadPage: function loadPage() {
+            this.loading = true;
+            this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
+            this.$store.dispatch('loadOutsideLightsByHouse', this.houseId);
+            this.$store.dispatch('loadOutsideDevicesByHouse', this.houseId);
+            this.$store.dispatch('loadDevicesByHouse', this.houseId);
+            this.$store.dispatch('loadLightsByHouse', this.houseId);
+            this.$store.dispatch('loadRadiatorsByHouse', this.houseId);
+            this.loading = false;
+        },
+        deviceType: function deviceType(typeId) {
+            if (typeId == 1) {
+                return 'Watt';
+            } else if (typeId == 2) {
+                return 'Gas';
+            } else {
+                return 'onbekend';
+            }
+        }
+    },
+    mounted: function mounted() {
+        this.loadPage();
+    }
+});
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [
+        _vm._v("\n            Kamers\n        ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c("table", { staticClass: "table table-striped" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.allRooms, function(room, index) {
+              return _c("tr", [
+                _c("td", [_vm._v(_vm._s(index + 1))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(room.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(room.square_meter) + " M2")])
+              ])
+            })
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [
+        _vm._v("\n            Apparaten\n        ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c("table", { staticClass: "table table-striped" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.houseDevices, function(device, index) {
+              return _c("tr", [
+                _c("td", [_vm._v(_vm._s(index + 1))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(device.name))]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    _vm._s(device.amount) +
+                      " " +
+                      _vm._s(_vm.deviceType(device.type_id))
+                  )
+                ])
+              ])
+            })
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [
+        _vm._v("\n            Verlichting\n        ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c("table", { staticClass: "table table-striped" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.houseLights, function(light, index) {
+              return _c("tr", [
+                _c("td", [_vm._v(_vm._s(index + 1))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(light.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(light.amount) + " Watt")])
+              ])
+            })
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [
+        _vm._v("\n            Verwarming\n        ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c("table", { staticClass: "table table-striped" }, [
+          _vm._m(3),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.houseRadiators, function(radiator, index) {
+              return _c("tr", [
+                _c("td", [_vm._v(_vm._s(index + 1))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(radiator.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(radiator.length) + " lengte")])
+              ])
+            })
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v(" ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("M2")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v(" ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v(" ")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v(" ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Watt")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v(" ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Lengte")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-96676854", module.exports)
+  }
+}
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -18513,25 +18926,25 @@ if (false) {
 }
 
 /***/ }),
-/* 74 */
+/* 77 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_axios__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_house__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_floors__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modules_rooms__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modules_devices__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modules_lights__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modules_radiators__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__modules_outsideDevices__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__modules_outsideLights__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modules_rooms__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modules_devices__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modules_lights__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modules_radiators__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__modules_outsideDevices__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__modules_outsideLights__ = __webpack_require__(84);
 
 
 
@@ -18652,7 +19065,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 // })
 
 /***/ }),
-/* 75 */
+/* 78 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19597,7 +20010,7 @@ var index_esm = {
 
 
 /***/ }),
-/* 76 */
+/* 79 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19697,13 +20110,12 @@ var index_esm = {
                 });
             };
         },
-        getRoom: function getRoom(state) {
-            return function (roomId) {
-                return state.rooms.find(function (room) {
-                    return room.id == roomId;
-                });
-            };
+        getRoom: function getRoom(state, roomId) {
+            return state.rooms.find(function (room) {
+                return room.id == roomId;
+            });
         },
+
         getRoomsByHouse: function getRoomsByHouse(state) {
             return function (houseId) {
                 // TODO SORT THOSE ITEMS
@@ -19731,12 +20143,16 @@ var index_esm = {
 });
 
 /***/ }),
-/* 77 */
+/* 80 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rooms__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__floors__ = __webpack_require__(33);
+
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -19802,6 +20218,13 @@ var index_esm = {
             __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/device/' + roomId + '/room').then(function (response) {
                 _this4.commit('setDevices', response.data);
             });
+        },
+        loadDevicesByHouse: function loadDevicesByHouse(state, houseId) {
+            var _this5 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/device/' + houseId + '/house').then(function (response) {
+                _this5.commit('setDevices', response.data);
+            });
         }
     },
     getters: {
@@ -19812,17 +20235,32 @@ var index_esm = {
                     return device.room_id == roomId;
                 });
             };
+        },
+        getDevicesByHouse: function getDevicesByHouse(state) {
+            return function (houseId) {
+                return state.devices.filter(function (device) {
+                    var room = __WEBPACK_IMPORTED_MODULE_1__rooms__["a" /* default */].getters.getRoom(__WEBPACK_IMPORTED_MODULE_1__rooms__["a" /* default */].state, device.room_id);
+                    var floor = __WEBPACK_IMPORTED_MODULE_2__floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_2__floors__["a" /* default */].state, room.floor_id);
+                    if (floor && floor != undefined) {
+                        return floor.house_id == houseId;
+                    }
+                });
+            };
         }
     }
 });
 
 /***/ }),
-/* 78 */
+/* 81 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rooms__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__floors__ = __webpack_require__(33);
+
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -19887,6 +20325,13 @@ var index_esm = {
             __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/light/' + roomId + '/room').then(function (response) {
                 _this4.commit('setLights', response.data);
             });
+        },
+        loadLightsByHouse: function loadLightsByHouse(state, houseId) {
+            var _this5 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/light/' + houseId + '/house').then(function (response) {
+                _this5.commit('setLights', response.data);
+            });
         }
     },
     getters: {
@@ -19897,17 +20342,32 @@ var index_esm = {
                     return light.room_id == roomId;
                 });
             };
+        },
+        getLightsByHouse: function getLightsByHouse(state) {
+            return function (houseId) {
+                return state.lights.filter(function (light) {
+                    var room = __WEBPACK_IMPORTED_MODULE_1__rooms__["a" /* default */].getters.getRoom(__WEBPACK_IMPORTED_MODULE_1__rooms__["a" /* default */].state, light.room_id);
+                    var floor = __WEBPACK_IMPORTED_MODULE_2__floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_2__floors__["a" /* default */].state, room.floor_id);
+                    if (floor && floor != undefined) {
+                        return floor.house_id == houseId;
+                    }
+                });
+            };
         }
     }
 });
 
 /***/ }),
-/* 79 */
+/* 82 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rooms__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__floors__ = __webpack_require__(33);
+
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -19972,6 +20432,13 @@ var index_esm = {
             __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/radiator/' + roomId + '/room').then(function (response) {
                 _this4.commit('setRadiators', response.data);
             });
+        },
+        loadRadiatorsByHouse: function loadRadiatorsByHouse(state, houseId) {
+            var _this5 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/radiator/' + houseId + '/house').then(function (response) {
+                _this5.commit('setRadiators', response.data);
+            });
         }
     },
     getters: {
@@ -19982,12 +20449,23 @@ var index_esm = {
                     return radiator.room_id == roomId;
                 });
             };
+        },
+        getRadiatorsByHouse: function getRadiatorsByHouse(state) {
+            return function (houseId) {
+                return state.radiators.filter(function (radiator) {
+                    var room = __WEBPACK_IMPORTED_MODULE_1__rooms__["a" /* default */].getters.getRoom(__WEBPACK_IMPORTED_MODULE_1__rooms__["a" /* default */].state, radiator.room_id);
+                    var floor = __WEBPACK_IMPORTED_MODULE_2__floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_2__floors__["a" /* default */].state, room.floor_id);
+                    if (floor && floor != undefined) {
+                        return floor.house_id == houseId;
+                    }
+                });
+            };
         }
     }
 });
 
 /***/ }),
-/* 80 */
+/* 83 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20073,7 +20551,7 @@ var index_esm = {
 });
 
 /***/ }),
-/* 81 */
+/* 84 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

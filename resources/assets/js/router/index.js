@@ -11,6 +11,7 @@ import WitchLights from '../components/house/questions/WitchLights.vue'
 import WitchRadiator from '../components/house/questions/WitchRadiator.vue'
 import WitchOutsideDevices from '../components/house/questions/WitchOutsideDevices.vue'
 import WitchOutsideLights from '../components/house/questions/WitchOutsideLights.vue'
+import HouseOverview from '../components/house/HouseOverview'
 
 export default new Router({
     mode: 'history',
@@ -54,6 +55,11 @@ export default new Router({
             name: 'houseLightsOutside',
             path: '/house/:houseId/outside/lights',
             component: WitchOutsideLights,
+        },
+        {
+            name: 'houseOverview',
+            path: '/house/:houseId/overview',
+            component: HouseOverview,
         },
     ]
 })

@@ -42,6 +42,7 @@
 
 <script>
     import router from '../../../router'
+    import Floor from '../../../store/modules/floors'
 
     export default {
         data() {
@@ -62,7 +63,7 @@
                 return this.$store.getters.getFloorsByHouse(this.houseId);
             },
             floor() {
-                return this.$store.getters.findFloor(this.floorId);
+                return Floor.getters.findFloor(Floor.state, this.floorId);
             },
             storey() {
                 if (this.houseFloors && this.floor) {

@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import Room from './rooms'
+import Floor from './floors'
 
 export default {
     state: {
@@ -48,12 +50,28 @@ export default {
             Vue.axios.get('/api/light/' + roomId + '/room').then((response) => {
                 this.commit('setLights', response.data);
             });
+        },
+        loadLightsByHouse(state, houseId) {
+            Vue.axios.get('/api/light/' + houseId + '/house').then((response) => {
+                this.commit('setLights', response.data);
+            });
         }
     },
     getters: {
         getLightsByRoom: (state) => (roomId) => {
             // todo sort check if needed
             return state.lights.filter(light => light.room_id == roomId);
+        },
+        getLightsByHouse: (state) => (houseId) => {
+            return state.lights.filter(
+                light => {
+                    let room = Room.getters.getRoom(Room.state, light.room_id);
+                    let floor = Floor.getters.findFloor(Floor.state, room.floor_id);
+                    if (floor && floor != undefined) {
+                        return floor.house_id == houseId;
+                    }
+                }
+            );
         }
     }
 }

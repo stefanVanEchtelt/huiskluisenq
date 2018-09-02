@@ -14,4 +14,12 @@ class Radiator extends Model
         'name',
         'length',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

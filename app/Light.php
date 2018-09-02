@@ -14,4 +14,12 @@ class Light extends Model
         'name',
         'amount',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

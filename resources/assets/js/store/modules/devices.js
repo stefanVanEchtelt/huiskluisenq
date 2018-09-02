@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import Room from './rooms'
+import Floor from './floors'
 
 export default {
     state: {
@@ -49,12 +51,28 @@ export default {
             Vue.axios.get('/api/device/' + roomId + '/room').then((response) => {
                 this.commit('setDevices', response.data);
             });
-        }
+        },
+        loadDevicesByHouse(state, houseId) {
+            Vue.axios.get('/api/device/' + houseId + '/house').then((response) => {
+                this.commit('setDevices', response.data);
+            });
+        },
     },
     getters: {
         getDevicesByRoom: (state) => (roomId) => {
             // todo sort
             return state.devices.filter(device => device.room_id == roomId);
+        },
+        getDevicesByHouse: (state) => (houseId) => {
+            return state.devices.filter(
+                device => {
+                    let room = Room.getters.getRoom(Room.state, device.room_id);
+                    let floor = Floor.getters.findFloor(Floor.state, room.floor_id);
+                    if (floor && floor != undefined) {
+                        return floor.house_id == houseId;
+                    }
+                }
+            );
         }
     }
 }

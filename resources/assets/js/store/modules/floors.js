@@ -56,7 +56,7 @@ export default {
     },
 
     getters: {
-        findFloor: (state) => (floorId) => {
+        findFloor(state, floorId) {
             return state.floors.find(floorSearch => floorSearch.id == floorId);
         },
 

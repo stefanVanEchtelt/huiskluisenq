@@ -103,4 +103,17 @@ class LightController extends Controller
             Light::where('room_id', $roomId)->get()
         );
     }
+
+    /**
+     * @param int $houseId
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getByHouse(int $houseId)
+    {
+        return response()->json(
+            Light::whereHas('room.floor', function ($q) use ($houseId) {
+                $q->where('house_id', $houseId);
+            })->get()
+        );
+    }
 }
