@@ -27,7 +27,7 @@
                 </tbody>
             </table>
 
-            <a class="btn btn-primary pull-right" @click="addOutsideDevice">Apperaat toevoegen</a>
+            <a class="btn btn-primary pull-right" @click="addOutsideDevice">Apparaat toevoegen</a>
         </div>
         <div class="panel-footer">
             <div class="row">
