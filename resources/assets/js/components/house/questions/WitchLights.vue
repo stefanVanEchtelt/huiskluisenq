@@ -2,12 +2,12 @@
     <div class="panel panel-default" v-if="room">
         <div class="panel-heading">Vraag 2</div>
         <div class="panel-body" style="font-size: 30px;">
-            Welke verlichting bevint zich in de {{ room.name ? room.name : '' }} op de {{ storey }}e verdieping?
+            Welke verlichting bevindt zich in de {{ room.name ? room.name : '' }} op de {{ storey }}e verdieping?
             <table class="table" style="width: 100%">
                 <thead>
                 <tr>
                     <th>Naam</th>
-                    <th>Amount</th>
+                    <th>Aantal</th>
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>
                 </tr>

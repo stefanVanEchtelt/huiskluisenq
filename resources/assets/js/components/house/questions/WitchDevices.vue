@@ -7,7 +7,7 @@
                 <thead>
                 <tr>
                     <th>Naam</th>
-                    <th>Amount</th>
+                    <th>&nbsp;</th>
                     <th>Type</th>
                     <th>&nbsp;</th>
                 </tr>

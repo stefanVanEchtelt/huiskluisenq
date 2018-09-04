@@ -67,9 +67,11 @@ export default {
             return state.devices.filter(
                 device => {
                     let room = Room.getters.getRoom(Room.state, device.room_id);
-                    let floor = Floor.getters.findFloor(Floor.state, room.floor_id);
-                    if (floor && floor != undefined) {
-                        return floor.house_id == houseId;
+                    if (room && room != undefined) {
+                        let floor = Floor.getters.findFloor(Floor.state, room.floor_id);
+                        if (floor && floor != undefined) {
+                            return floor.house_id == houseId;
+                        }
                     }
                 }
             );

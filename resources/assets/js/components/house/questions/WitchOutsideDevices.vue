@@ -7,7 +7,7 @@
                 <thead>
                 <tr>
                     <th>Naam</th>
-                    <th>Amount</th>
+                    <th>Aantal</th>
                     <th>&nbsp;</th>
                 </tr>
                 </thead>
@@ -18,9 +18,6 @@
                         </td>
                         <td>
                             <input class="form-control" type="number" v-model="outsideDevice.amount" @change="updateOutsideDevice(outsideDevice)">
-                        </td>
-                        <td>
-                            cm lengte
                         </td>
                         <td><a class="btn btn-danger" @click="deleteOutsideDevice(outsideDevice.id)"><i class="far fa-trash-alt"></i></a></td>
                     </tr>

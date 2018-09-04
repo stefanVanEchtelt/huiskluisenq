@@ -2,12 +2,12 @@
     <div class="panel panel-default">
         <div class="panel-heading">Vraag 2<!--TODO change--></div>
         <div class="panel-body" style="font-size: 30px;">
-            Welke lichten bevinden zich buiten?
+            Welke verlichting bevindt zich buiten?
             <table class="table" style="width: 100%">
                 <thead>
                 <tr>
                     <th>Naam</th>
-                    <th>Amount</th>
+                    <th>Aantal</th>
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>
                 </tr>
@@ -28,7 +28,7 @@
                 </tbody>
             </table>
 
-            <a class="btn btn-primary pull-right" @click="addOutsideLight">Light toevoegen</a>
+            <a class="btn btn-primary pull-right" @click="addOutsideLight">Licht toevoegen</a>
         </div>
         <div class="panel-footer">
             <div class="row">
