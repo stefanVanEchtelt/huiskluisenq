@@ -11341,88 +11341,6 @@ module.exports = Vue;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_house_Houses__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview__);
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-
-
-
-
-
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-    mode: 'history',
-    routes: [{
-        name: 'home',
-        path: '/home',
-        component: __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default.a
-    }, {
-        name: 'houseFloorCount',
-        path: '/house/:houseId/floors',
-        component: __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default.a
-    }, {
-        name: 'houseFloor',
-        path: '/house/:houseId/floor/:floorId',
-        component: __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default.a
-    }, {
-        name: 'houseRoomDevices',
-        path: '/house/:houseId/devices/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default.a
-    }, {
-        name: 'houseRoomLights',
-        path: '/house/:houseId/lights/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default.a
-    }, {
-        name: 'houseRoomRadiators',
-        path: '/house/:houseId/radiators/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default.a
-    }, {
-        name: 'houseDevicesOutside',
-        path: '/house/:houseId/outside/devices',
-        component: __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue___default.a
-    }, {
-        name: 'houseLightsOutside',
-        path: '/house/:houseId/outside/lights',
-        component: __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue___default.a
-    }, {
-        name: 'houseOverview',
-        path: '/house/:houseId/overview',
-        component: __WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview___default.a
-    }]
-}));
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -11529,6 +11447,88 @@ module.exports = function normalizeComponent (
   }
 }
 
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_house_Houses__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview__);
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+
+
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+    mode: 'history',
+    routes: [{
+        name: 'home',
+        path: '/home',
+        component: __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default.a
+    }, {
+        name: 'houseFloorCount',
+        path: '/house/:houseId/floors',
+        component: __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyFloors___default.a
+    }, {
+        name: 'houseFloor',
+        path: '/house/:houseId/floor/:floorId',
+        component: __WEBPACK_IMPORTED_MODULE_4__components_house_questions_WitchRooms___default.a
+    }, {
+        name: 'houseRoomDevices',
+        path: '/house/:houseId/devices/:roomId',
+        component: __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchDevices___default.a
+    }, {
+        name: 'houseRoomLights',
+        path: '/house/:houseId/lights/:roomId',
+        component: __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchLights_vue___default.a
+    }, {
+        name: 'houseRoomRadiators',
+        path: '/house/:houseId/radiators/:roomId',
+        component: __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchRadiator_vue___default.a
+    }, {
+        name: 'houseDevicesOutside',
+        path: '/house/:houseId/outside/devices',
+        component: __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchOutsideDevices_vue___default.a
+    }, {
+        name: 'houseLightsOutside',
+        path: '/house/:houseId/outside/lights',
+        component: __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideLights_vue___default.a
+    }, {
+        name: 'houseOverview',
+        path: '/house/:houseId/overview',
+        component: __WEBPACK_IMPORTED_MODULE_10__components_house_HouseOverview___default.a
+    }]
+}));
 
 /***/ }),
 /* 4 */
@@ -13235,7 +13235,7 @@ module.exports = function spread(callback) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router__ = __webpack_require__(3);
 
 
 
@@ -13315,8 +13315,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_App__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_App___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_App__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_axios__ = __webpack_require__(34);
@@ -13607,11 +13607,11 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(48)
 /* template */
-var __vue_template__ = __webpack_require__(77)
+var __vue_template__ = __webpack_require__(80)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -13655,7 +13655,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 //
 //
 //
@@ -16314,7 +16314,7 @@ if (inBrowser && window.Vue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(51)
 /* template */
@@ -16423,7 +16423,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(54)
 /* template */
@@ -16471,7 +16471,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 //
 //
 //
@@ -16603,7 +16603,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(57)
 /* template */
@@ -16651,7 +16651,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(4);
 //
 //
@@ -16784,9 +16784,9 @@ var render = function() {
       { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
       [
         _vm._v(
-          "\n        Welke ruimtes bevinden zich op de (" +
+          "\n        Welke ruimtes bevinden zich op de " +
             _vm._s(_vm.storey) +
-            " e) verdieping?\n        "
+            "e verdieping?\n        "
         ),
         _c("table", { staticClass: "table", staticStyle: { width: "100%" } }, [
           _vm._m(0),
@@ -16917,7 +16917,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Naam")]),
         _vm._v(" "),
-        _c("th", [_vm._v("M2")]),
+        _c("th", [_vm._v("m2")]),
         _vm._v(" "),
         _c("th", [_vm._v(" ")])
       ])
@@ -16938,7 +16938,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(60)
 /* template */
@@ -16986,7 +16986,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__ = __webpack_require__(6);
 //
@@ -17319,7 +17319,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Naam")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Amount")]),
+        _c("th", [_vm._v(" ")]),
         _vm._v(" "),
         _c("th", [_vm._v("Type")]),
         _vm._v(" "),
@@ -17342,7 +17342,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(63)
 /* template */
@@ -17390,7 +17390,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__ = __webpack_require__(6);
 //
@@ -17532,7 +17532,7 @@ var render = function() {
           { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
           [
             _vm._v(
-              "\n        Welke verlichting bevint zich in de " +
+              "\n        Welke verlichting bevindt zich in de " +
                 _vm._s(_vm.room.name ? _vm.room.name : "") +
                 " op de " +
                 _vm._s(_vm.storey) +
@@ -17668,7 +17668,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Naam")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Amount")]),
+        _c("th", [_vm._v("Aantal")]),
         _vm._v(" "),
         _c("th", [_vm._v(" ")]),
         _vm._v(" "),
@@ -17691,7 +17691,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(66)
 /* template */
@@ -17739,7 +17739,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__ = __webpack_require__(6);
 //
@@ -17881,7 +17881,7 @@ var render = function() {
           { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
           [
             _vm._v(
-              "\n        Welke radiatoren bevint zich in de " +
+              "\n        Welke radiatoren bevindt zich in de " +
                 _vm._s(_vm.room.name ? _vm.room.name : "") +
                 " op de " +
                 _vm._s(_vm.storey) +
@@ -18019,7 +18019,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Naam")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Amount")]),
+        _c("th", [_vm._v("Aantal")]),
         _vm._v(" "),
         _c("th", [_vm._v(" ")]),
         _vm._v(" "),
@@ -18042,7 +18042,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(69)
 /* template */
@@ -18090,10 +18090,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 //
 //
 //
@@ -18260,12 +18257,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("td", [
-                  _vm._v(
-                    "\n                        cm lengte\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", [
                   _c(
                     "a",
                     {
@@ -18326,7 +18317,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Naam")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Amount")]),
+        _c("th", [_vm._v("Aantal")]),
         _vm._v(" "),
         _c("th", [_vm._v(" ")])
       ])
@@ -18347,7 +18338,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(72)
 /* template */
@@ -18395,7 +18386,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
 //
 //
 //
@@ -18500,7 +18491,7 @@ var render = function() {
       "div",
       { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
       [
-        _vm._v("\n        Welke lichten bevinden zich buiten?\n        "),
+        _vm._v("\n        Welke verlichting bevindt zich buiten?\n        "),
         _c("table", { staticClass: "table", staticStyle: { width: "100%" } }, [
           _vm._m(0),
           _vm._v(" "),
@@ -18590,7 +18581,7 @@ var render = function() {
             staticClass: "btn btn-primary pull-right",
             on: { click: _vm.addOutsideLight }
           },
-          [_vm._v("Light toevoegen")]
+          [_vm._v("Licht toevoegen")]
         )
       ]
     ),
@@ -18626,7 +18617,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("Naam")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Amount")]),
+        _c("th", [_vm._v("Aantal")]),
         _vm._v(" "),
         _c("th", [_vm._v(" ")]),
         _vm._v(" "),
@@ -18649,11 +18640,11 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(75)
 /* template */
-var __vue_template__ = __webpack_require__(76)
+var __vue_template__ = __webpack_require__(79)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -18697,7 +18688,9 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__overview_information_types_row_vue__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__overview_information_types_row_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__overview_information_types_row_vue__);
 //
 //
 //
@@ -18798,6 +18791,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -18827,6 +18834,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         houseRadiators: function houseRadiators() {
             return this.$store.getters.getRadiatorsByHouse(this.houseId);
+        },
+        informationTypes: function informationTypes() {
+            return this.$store.getters.allInformationTypes();
         }
     },
     methods: {
@@ -18838,6 +18848,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$store.dispatch('loadDevicesByHouse', this.houseId);
             this.$store.dispatch('loadLightsByHouse', this.houseId);
             this.$store.dispatch('loadRadiatorsByHouse', this.houseId);
+            this.$store.dispatch('loadInformationTypes');
+
+            // TODO CHECK IF NEEDED
+            this.$store.dispatch('loadInformationSources');
+
             this.loading = false;
         },
         deviceType: function deviceType(typeId) {
@@ -18852,6 +18867,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         this.loadPage();
+    },
+
+    components: {
+        InformationTypeRow: __WEBPACK_IMPORTED_MODULE_1__overview_information_types_row_vue___default.a
     }
 });
 
@@ -18859,11 +18878,246 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(77)
+/* template */
+var __vue_template__ = __webpack_require__(78)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\house\\overview\\information_types\\row.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-15510a14", Component.options)
+  } else {
+    hotAPI.reload("data-v-15510a14", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        informationType: Object
+    },
+    data: function data() {
+        return {
+            showModal: false
+        };
+    },
+
+    computed: {},
+    methods: {}
+});
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("tr", [
+    _c("td", [_vm._v(_vm._s(_vm.informationType.name))]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-primary",
+          attrs: { "data-toggle": "modal", "data-target": "#exampleModal" }
+        },
+        [_vm._v("Beschikbaar voor")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalLabel" }
+                  },
+                  [_vm._v("Modal title")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm._v("\n                    ...\n                ")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Save changes")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-15510a14", module.exports)
+  }
+}
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [
+        _vm._v("\n            Delen van informatie\n        ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c("table", { staticClass: "table table-striped" }, [
+          _c(
+            "tbody",
+            _vm._l(_vm.informationTypes, function(informationType, index) {
+              return _c("InformationTypeRow", {
+                key: index,
+                attrs: { informationType: informationType }
+              })
+            })
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "panel panel-default" }, [
       _c("div", { staticClass: "panel-heading" }, [
         _vm._v("\n            Kamers\n        ")
@@ -18881,7 +19135,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(room.name))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(room.square_meter) + " M2")])
+                _c("td", [_vm._v(_vm._s(room.square_meter) + " m2")])
               ])
             })
           )
@@ -18980,9 +19234,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v(" ")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
+        _c("th", [_vm._v("Naam")]),
         _vm._v(" "),
-        _c("th", [_vm._v("M2")])
+        _c("th", [_vm._v("m2")])
       ])
     ])
   },
@@ -18994,7 +19248,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v(" ")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
+        _c("th", [_vm._v("Naam")]),
         _vm._v(" "),
         _c("th", [_vm._v(" ")])
       ])
@@ -19008,7 +19262,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v(" ")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
+        _c("th", [_vm._v("Naam")]),
         _vm._v(" "),
         _c("th", [_vm._v("Watt")])
       ])
@@ -19022,7 +19276,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v(" ")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
+        _c("th", [_vm._v("Naam")]),
         _vm._v(" "),
         _c("th", [_vm._v("Lengte")])
       ])
@@ -19039,7 +19293,7 @@ if (false) {
 }
 
 /***/ }),
-/* 77 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -19059,13 +19313,13 @@ if (false) {
 }
 
 /***/ }),
-/* 78 */
+/* 81 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_axios__ = __webpack_require__(34);
@@ -19073,11 +19327,13 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_house__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_floors__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modules_rooms__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modules_devices__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modules_lights__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modules_radiators__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__modules_outsideDevices__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__modules_outsideLights__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modules_devices__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modules_lights__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modules_radiators__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__modules_outsideDevices__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__modules_outsideLights__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__modules_informationTypes__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__modules_informationSources__ = __webpack_require__(89);
 
 
 
@@ -19098,6 +19354,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 
 
+
+
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     modules: {
         house: __WEBPACK_IMPORTED_MODULE_4__modules_house__["a" /* default */],
@@ -19107,7 +19365,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         lights: __WEBPACK_IMPORTED_MODULE_8__modules_lights__["a" /* default */],
         radiators: __WEBPACK_IMPORTED_MODULE_9__modules_radiators__["a" /* default */],
         outsideDevices: __WEBPACK_IMPORTED_MODULE_10__modules_outsideDevices__["a" /* default */],
-        outsideLights: __WEBPACK_IMPORTED_MODULE_11__modules_outsideLights__["a" /* default */]
+        outsideLights: __WEBPACK_IMPORTED_MODULE_11__modules_outsideLights__["a" /* default */],
+        informationTypes: __WEBPACK_IMPORTED_MODULE_12__modules_informationTypes__["a" /* default */],
+        informationSources: __WEBPACK_IMPORTED_MODULE_13__modules_informationSources__["a" /* default */]
     }
 }));
 
@@ -19198,7 +19458,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 // })
 
 /***/ }),
-/* 79 */
+/* 82 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20143,7 +20403,7 @@ var index_esm = {
 
 
 /***/ }),
-/* 80 */
+/* 83 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20240,9 +20500,11 @@ var index_esm = {
             return function (houseId) {
                 return state.devices.filter(function (device) {
                     var room = __WEBPACK_IMPORTED_MODULE_1__rooms__["a" /* default */].getters.getRoom(__WEBPACK_IMPORTED_MODULE_1__rooms__["a" /* default */].state, device.room_id);
-                    var floor = __WEBPACK_IMPORTED_MODULE_2__floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_2__floors__["a" /* default */].state, room.floor_id);
-                    if (floor && floor != undefined) {
-                        return floor.house_id == houseId;
+                    if (room && room != undefined) {
+                        var floor = __WEBPACK_IMPORTED_MODULE_2__floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_2__floors__["a" /* default */].state, room.floor_id);
+                        if (floor && floor != undefined) {
+                            return floor.house_id == houseId;
+                        }
                     }
                 });
             };
@@ -20251,7 +20513,7 @@ var index_esm = {
 });
 
 /***/ }),
-/* 81 */
+/* 84 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20358,7 +20620,7 @@ var index_esm = {
 });
 
 /***/ }),
-/* 82 */
+/* 85 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20465,7 +20727,7 @@ var index_esm = {
 });
 
 /***/ }),
-/* 83 */
+/* 86 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20551,7 +20813,7 @@ var index_esm = {
 });
 
 /***/ }),
-/* 84 */
+/* 87 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20630,6 +20892,94 @@ var index_esm = {
                 return state.outsideLights.filter(function (outsideLight) {
                     return outsideLight.house_id == houseId;
                 });
+            };
+        }
+    }
+});
+
+/***/ }),
+/* 88 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    state: {
+        informationTypes: []
+    },
+    mutations: {
+        setInformationTypes: function setInformationTypes(state, informationTypes) {
+            informationTypes.forEach(function (informationType) {
+                var informationTypeExists = state.informationTypes.find(function (informationTypeSearch) {
+                    return informationTypeSearch.id == informationType.id;
+                });
+                if (informationTypeExists !== undefined) {
+                    state.informationTypes.splice(state.informationTypes.indexOf(informationTypeExists), 1);
+                }
+                state.informationTypes.push(informationType);
+            });
+        }
+    },
+    actions: {
+        loadInformationTypes: function loadInformationTypes(state) {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/information/type/').then(function (response) {
+                _this.commit('setInformationTypes', response.data);
+            });
+        }
+    },
+    getters: {
+        allInformationTypes: function allInformationTypes(state) {
+            return function () {
+                return state.informationTypes;
+            };
+        }
+    }
+});
+
+/***/ }),
+/* 89 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    state: {
+        informationSources: []
+    },
+    mutations: {
+        setInformationSources: function setInformationSources(state, informationSources) {
+            informationSources.forEach(function (informationSource) {
+                var informationSourceExists = state.informationSources.find(function (informationSourceSearch) {
+                    return informationSourceSearch.id == informationSource.id;
+                });
+                if (informationSourceExists !== undefined) {
+                    state.informationSources.splice(state.informationSources.indexOf(informationSourceExists), 1);
+                }
+                state.informationSources.push(informationSource);
+            });
+        }
+    },
+    actions: {
+        loadInformationSources: function loadInformationSources(state) {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/information/source/').then(function (response) {
+                _this.commit('setInformationSources', response.data);
+            });
+        }
+    },
+    getters: {
+        allInformationSources: function allInformationSources(state) {
+            return function () {
+                return state.informationSources;
             };
         }
     }

@@ -17,6 +17,8 @@ import lights from './modules/lights'
 import radiators from './modules/radiators'
 import outsideDevices from './modules/outsideDevices'
 import outsideLights from './modules/outsideLights'
+import informationTypes from './modules/informationTypes'
+import informationSources from './modules/informationSources'
 
 export default new VueX.Store({
     modules: {
@@ -28,6 +30,8 @@ export default new VueX.Store({
         radiators,
         outsideDevices,
         outsideLights,
+        informationTypes,
+        informationSources,
     }
 })
 

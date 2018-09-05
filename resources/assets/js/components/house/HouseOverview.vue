@@ -2,6 +2,19 @@
     <div>
         <div class="panel panel-default">
             <div class="panel-heading">
+                Delen van informatie
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <tbody>
+                        <InformationTypeRow v-for="(informationType, index) in informationTypes" :informationType="informationType" :key="index"/>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
                 Kamers
             </div>
             <div class="panel-body">
@@ -9,15 +22,15 @@
                     <thead>
                         <tr>
                             <th>&nbsp;</th>
-                            <th>Name</th>
-                            <th>M2</th>
+                            <th>Naam</th>
+                            <th>m2</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(room, index) in allRooms">
                             <td>{{ index + 1 }}</td>
                             <td>{{ room.name }}</td>
-                            <td>{{ room.square_meter }} M2</td>
+                            <td>{{ room.square_meter }} m2</td>
                         </tr>
                     </tbody>
                 </table>
@@ -33,7 +46,7 @@
                     <thead>
                         <tr>
                             <th>&nbsp;</th>
-                            <th>Name</th>
+                            <th>Naam</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
@@ -57,7 +70,7 @@
                     <thead>
                         <tr>
                             <th>&nbsp;</th>
-                            <th>Name</th>
+                            <th>Naam</th>
                             <th>Watt</th>
                         </tr>
                     </thead>
@@ -81,7 +94,7 @@
                     <thead>
                         <tr>
                             <th>&nbsp;</th>
-                            <th>Name</th>
+                            <th>Naam</th>
                             <th>Lengte</th>
                         </tr>
                     </thead>
@@ -100,6 +113,7 @@
 
 <script>
     import router from '../../router'
+    import InformationTypeRow from './overview/information_types/row.vue'
 
     export default {
         data() {
@@ -126,6 +140,9 @@
             },
             houseRadiators() {
                 return this.$store.getters.getRadiatorsByHouse(this.houseId);
+            },
+            informationTypes() {
+                return this.$store.getters.allInformationTypes();
             }
         },
         methods: {
@@ -137,6 +154,11 @@
                 this.$store.dispatch('loadDevicesByHouse', this.houseId);
                 this.$store.dispatch('loadLightsByHouse', this.houseId);
                 this.$store.dispatch('loadRadiatorsByHouse', this.houseId);
+                this.$store.dispatch('loadInformationTypes');
+
+                // TODO CHECK IF NEEDED
+                this.$store.dispatch('loadInformationSources');
+
                 this.loading = false;
             },
             deviceType(typeId) {
@@ -151,6 +173,9 @@
         },
         mounted() {
             this.loadPage();
+        },
+        components: {
+            InformationTypeRow
         }
     }
 </script>

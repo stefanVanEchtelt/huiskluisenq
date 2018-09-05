@@ -64,6 +64,15 @@ Route::put('/api/outside/light/{outsideLight}', 'OutsideLightController@update')
 Route::delete('/api/outside/light/{outsideLight}', 'OutsideLightController@destroy');
 Route::get('/api/outside/light/{houseId}/house', 'OutsideLightController@getByHouse');
 
+Route::resource('/api/information/type', 'InformationTypesController');
+
+Route::resource('/api/information/source', 'InformationSourcesController');
+
+// TODO
+Route::resource('/api/xx', 'InformationHomeTypeSourcesController');
+
+
+
 Route::any('/house/{all}', function () {
     return view('home');
 })->where(['all' => '.*']);

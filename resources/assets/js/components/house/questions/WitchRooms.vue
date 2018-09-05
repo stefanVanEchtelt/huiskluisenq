@@ -2,13 +2,13 @@
     <div class="panel panel-default">
         <div class="panel-heading">Vraag 2</div>
         <div class="panel-body" style="font-size: 30px;">
-            Welke ruimtes bevinden zich op de ({{ storey }} e) verdieping?
+            Welke ruimtes bevinden zich op de {{ storey }}e verdieping?
             <table class="table" style="width: 100%">
                 <thead>
                 <tr>
                     <th>&nbsp;</th>
                     <th>Naam</th>
-                    <th>M2</th>
+                    <th>m2</th>
                     <th>&nbsp;</th>
                 </tr>
                 </thead>
