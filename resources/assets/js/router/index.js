@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router);
 
 import Houses from '../components/house/Houses'
+import HowManyResidents from '../components/house/questions/HowManyResidents'
 import HowManyFloors from '../components/house/questions/HowManyFloors'
 import WitchRooms from '../components/house/questions/WitchRooms'
 import WitchDevices from '../components/house/questions/WitchDevices'
@@ -20,6 +21,11 @@ export default new Router({
             name: 'home',
             path: '/home',
             component: Houses
+        },
+        {
+            name: 'houseResidents',
+            path: '/house/:houseId/residents',
+            component: HowManyResidents
         },
         {
             name: 'houseFloorCount',

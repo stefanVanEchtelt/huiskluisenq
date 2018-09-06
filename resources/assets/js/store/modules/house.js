@@ -13,12 +13,19 @@ export default {
             }
             state.houses.push(house);
         },
+        updateHouse(state, house) {
+            console.log(house);
+            Vue.axios.put('/api/house/' + house.id, house).then((response) => {
+                console.log(response);
+                // this.commit('setHouse', response.data);
+            })
+        },
         addHouse(state) {
             Vue.axios.post('/api/house', {
                 user_id: CONFIG.USER_ID
             }).then((response) => {
-                router.push('/house/' + response.data.id + '/floors');
                 this.commit('setHouse', response.data);
+                router.push('/house/' + response.data.id + '/residents');
             })
         }
     },
@@ -30,8 +37,8 @@ export default {
         }
     },
     getters: {
-        getHouse(state, houseId) {
-            return state.houses.find(house => house.id == houseId) !== undefined;
+        getHouse: (state) => (houseId) => {
+            return state.houses.find(house => house.id == houseId);
         }
     }
 }

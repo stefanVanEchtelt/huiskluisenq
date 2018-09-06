@@ -23,8 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-//Route::post('/api/house', 'HouseController@store');
 Route::resource('/api/house', 'HouseController');
+Route::put('/api/house/{house}', 'HouseController@update');
 Route::get('/api/house/{house}/load/full', 'HouseController@loadWithRelations');
 
 Route::resource('/api/floor', 'FloorController');

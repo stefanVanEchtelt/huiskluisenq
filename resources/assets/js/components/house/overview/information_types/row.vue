@@ -38,7 +38,9 @@
             }
         },
         computed: {
-
+            informationSources() {
+                return this.$store.getters.allInformationSources();
+            }
         },
         methods: {
 

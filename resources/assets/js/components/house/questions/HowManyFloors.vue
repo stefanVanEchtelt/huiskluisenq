@@ -37,10 +37,11 @@
         },
         methods: {
             lastPage() {
-                router.push('/home');
+                router.push('/house/' + this.houseId + '/residents');
             },
             saveRoomCount() {
                 this.$store.commit('updateFloorsByCount', {'floorCount': this.floorCountEdit, 'houseId': this.houseId});
+
                 // TODO PROMISE instead of timeout
                 setTimeout(() => {
                     router.push('/house/' + this.houseId + '/floor/' + this.$store.getters.getFloorsByHouse(this.houseId)[0].id);
