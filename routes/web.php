@@ -65,7 +65,7 @@ Route::delete('/api/outside/light/{outsideLight}', 'OutsideLightController@destr
 Route::get('/api/outside/light/{houseId}/house', 'OutsideLightController@getByHouse');
 
 Route::resource('/api/information/type', 'InformationTypesController');
-
+Route::resource('/api/cooking/type', 'CookingTypeController');
 Route::resource('/api/information/source', 'InformationSourcesController');
 
 // TODO

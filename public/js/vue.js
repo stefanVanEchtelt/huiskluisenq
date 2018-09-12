@@ -70,7 +70,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(8);
+var bind = __webpack_require__(5);
 var isBuffer = __webpack_require__(16);
 
 /*global toString:true*/
@@ -11337,96 +11337,107 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(45).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(45).setImmediate))
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_house_Houses__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyResidents__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyResidents___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyResidents__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_HowManyFloors__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_house_questions_HowManyFloors___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_house_questions_HowManyFloors__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchRooms__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchRooms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchRooms__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchDevices__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchDevices___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchDevices__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchLights_vue__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchLights_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchRadiator_vue__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchRadiator_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchRadiator_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideDevices_vue__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideDevices_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideDevices_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_house_questions_WitchOutsideLights_vue__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_house_questions_WitchOutsideLights_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_house_questions_WitchOutsideLights_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_house_HouseOverview__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_house_HouseOverview___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_house_HouseOverview__);
+/* WEBPACK VAR INJECTION */(function(process) {
 
+var utils = __webpack_require__(0);
+var normalizeHeaderName = __webpack_require__(18);
 
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
 
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(6);
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(6);
+  }
+  return adapter;
+}
 
+var defaults = {
+  adapter: getDefaultAdapter(),
 
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
 
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
 
+  timeout: 0,
 
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
 
+  maxContentLength: -1,
 
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
 
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
 
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
+});
 
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
 
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-    mode: 'history',
-    routes: [{
-        name: 'home',
-        path: '/home',
-        component: __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default.a
-    }, {
-        name: 'houseResidents',
-        path: '/house/:houseId/residents',
-        component: __WEBPACK_IMPORTED_MODULE_3__components_house_questions_HowManyResidents___default.a
-    }, {
-        name: 'houseFloorCount',
-        path: '/house/:houseId/floors',
-        component: __WEBPACK_IMPORTED_MODULE_4__components_house_questions_HowManyFloors___default.a
-    }, {
-        name: 'houseFloor',
-        path: '/house/:houseId/floor/:floorId',
-        component: __WEBPACK_IMPORTED_MODULE_5__components_house_questions_WitchRooms___default.a
-    }, {
-        name: 'houseRoomDevices',
-        path: '/house/:houseId/devices/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_6__components_house_questions_WitchDevices___default.a
-    }, {
-        name: 'houseRoomLights',
-        path: '/house/:houseId/lights/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_7__components_house_questions_WitchLights_vue___default.a
-    }, {
-        name: 'houseRoomRadiators',
-        path: '/house/:houseId/radiators/:roomId',
-        component: __WEBPACK_IMPORTED_MODULE_8__components_house_questions_WitchRadiator_vue___default.a
-    }, {
-        name: 'houseDevicesOutside',
-        path: '/house/:houseId/outside/devices',
-        component: __WEBPACK_IMPORTED_MODULE_9__components_house_questions_WitchOutsideDevices_vue___default.a
-    }, {
-        name: 'houseLightsOutside',
-        path: '/house/:houseId/outside/lights',
-        component: __WEBPACK_IMPORTED_MODULE_10__components_house_questions_WitchOutsideLights_vue___default.a
-    }, {
-        name: 'houseOverview',
-        path: '/house/:houseId/overview',
-        component: __WEBPACK_IMPORTED_MODULE_11__components_house_HouseOverview___default.a
-    }]
-}));
+module.exports = defaults;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 3 */
@@ -11539,329 +11550,6 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-    state: {
-        floors: []
-    },
-    mutations: {
-        setFloors: function setFloors(state, floors) {
-            floors.forEach(function (floor) {
-                var floorExists = state.floors.find(function (floorSearch) {
-                    return floorSearch.id == floor.id;
-                });
-                if (floorExists !== undefined) {
-                    state.floors.splice(state.floors.indexOf(floorExists), 1);
-                }
-                state.floors.push(floor);
-            });
-        },
-        updateFloorsByCount: function updateFloorsByCount(state, data) {
-            // TODO change house
-            var sortedFloors = this.getters.getFloorsByHouse(data.houseId);
-            if (data.floorCount <= sortedFloors.length) {
-                var i;
-                for (i = data.floorCount; i < sortedFloors.length; i++) {
-                    this.commit('deleteFloor', sortedFloors[i].id);
-                }
-            } else if (data.floorCount >= sortedFloors.length) {
-                var i;
-                for (i = sortedFloors.length; i < data.floorCount; i++) {
-                    this.commit('createFloor', data.houseId);
-                }
-            }
-        },
-        deleteFloor: function deleteFloor(state, id) {
-            // todo remove related Data
-            var floor = state.floors.find(function (existingInstance) {
-                return existingInstance.id == id;
-            });
-            if (floor !== undefined) {
-                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.delete('/api/floor/' + floor.id);
-                state.floors.splice(state.floors.indexOf(floor), 1);
-            }
-        },
-        createFloor: function createFloor(state, houseId) {
-            // TODO fix house_id and sort
-            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.post('/api/floor', {
-                house_id: houseId,
-                sort: 3
-            }).then(function (response) {
-                state.floors.push(response.data);
-            });
-        }
-    },
-    actions: {
-        loadFloors: function loadFloors(state, houseId) {
-            var _this = this;
-
-            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/house/' + houseId + '/floors').then(function (response) {
-                _this.commit('setFloors', response.data);
-            });
-        }
-    },
-
-    getters: {
-        findFloor: function findFloor(state, floorId) {
-            return state.floors.find(function (floorSearch) {
-                return floorSearch.id == floorId;
-            });
-        },
-
-
-        getFloorsByHouse: function getFloorsByHouse(state) {
-            return function (houseId) {
-                return state.floors.filter(function (floor) {
-                    return floor.house_id == houseId;
-                }).sort(function (a, b) {
-                    return a.sort > b.sort ? 1 : b.sort > a.sort ? -1 : 0;
-                });
-            };
-        }
-    }
-});
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(18);
-
-var DEFAULT_CONTENT_TYPE = {
-  'Content-Type': 'application/x-www-form-urlencoded'
-};
-
-function setContentTypeIfUnset(headers, value) {
-  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
-    headers['Content-Type'] = value;
-  }
-}
-
-function getDefaultAdapter() {
-  var adapter;
-  if (typeof XMLHttpRequest !== 'undefined') {
-    // For browsers use XHR adapter
-    adapter = __webpack_require__(9);
-  } else if (typeof process !== 'undefined') {
-    // For node use HTTP adapter
-    adapter = __webpack_require__(9);
-  }
-  return adapter;
-}
-
-var defaults = {
-  adapter: getDefaultAdapter(),
-
-  transformRequest: [function transformRequest(data, headers) {
-    normalizeHeaderName(headers, 'Content-Type');
-    if (utils.isFormData(data) ||
-      utils.isArrayBuffer(data) ||
-      utils.isBuffer(data) ||
-      utils.isStream(data) ||
-      utils.isFile(data) ||
-      utils.isBlob(data)
-    ) {
-      return data;
-    }
-    if (utils.isArrayBufferView(data)) {
-      return data.buffer;
-    }
-    if (utils.isURLSearchParams(data)) {
-      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
-      return data.toString();
-    }
-    if (utils.isObject(data)) {
-      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
-      return JSON.stringify(data);
-    }
-    return data;
-  }],
-
-  transformResponse: [function transformResponse(data) {
-    /*eslint no-param-reassign:0*/
-    if (typeof data === 'string') {
-      try {
-        data = JSON.parse(data);
-      } catch (e) { /* Ignore */ }
-    }
-    return data;
-  }],
-
-  timeout: 0,
-
-  xsrfCookieName: 'XSRF-TOKEN',
-  xsrfHeaderName: 'X-XSRF-TOKEN',
-
-  maxContentLength: -1,
-
-  validateStatus: function validateStatus(status) {
-    return status >= 200 && status < 300;
-  }
-};
-
-defaults.headers = {
-  common: {
-    'Accept': 'application/json, text/plain, */*'
-  }
-};
-
-utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
-  defaults.headers[method] = {};
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
-});
-
-module.exports = defaults;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)))
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__floors__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__house__ = __webpack_require__(33);
-
-
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-    state: {
-        rooms: []
-    },
-    mutations: {
-        setRooms: function setRooms(state, rooms) {
-            var _this = this;
-
-            rooms.forEach(function (room) {
-                _this.commit('setRoom', room);
-            });
-        },
-        setRoom: function setRoom(state, room) {
-            var roomExists = state.rooms.find(function (roomSearch) {
-                return roomSearch.id == room.id;
-            });
-            if (roomExists !== undefined) {
-                state.rooms.splice(state.rooms.indexOf(roomExists), 1);
-            }
-            state.rooms.push(room);
-        },
-        addEmptyRoom: function addEmptyRoom(state, floorId) {
-            var _this2 = this;
-
-            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.post('/api/room', {
-                name: '',
-                square_meter: '',
-                floor_id: floorId
-            }).then(function (response) {
-                _this2.commit('setRoom', response.data);
-            });
-        },
-        updateRoom: function updateRoom(state, room) {
-            var _this3 = this;
-
-            var roomExists = state.rooms.find(function (roomSearch) {
-                return roomSearch.id == room.id;
-            });
-            if (roomExists !== undefined) {
-                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.put('/api/room/' + room.id, room).then(function (response) {
-                    _this3.commit('setRoom', response.data);
-                });
-            }
-        },
-        deleteRoom: function deleteRoom(state, roomId) {
-            var roomExists = state.rooms.find(function (roomSearch) {
-                return roomSearch.id == roomId;
-            });
-            if (roomExists !== undefined) {
-                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.delete('/api/room/' + roomId).then(function (response) {
-                    state.rooms.splice(state.rooms.indexOf(roomExists), 1);
-                });
-            }
-        }
-    },
-    actions: {
-        loadRoomsByFloor: function loadRoomsByFloor(state, floorId) {
-            var _this4 = this;
-
-            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/floor/' + floorId + '/rooms').then(function (response) {
-                _this4.commit('setRooms', response.data);
-            });
-        },
-        loadAllRoomsByHouse: function loadAllRoomsByHouse(state, houseId) {
-            var _this5 = this;
-
-            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/house/' + houseId + '/rooms').then(function (response) {
-                _this5.commit('setRooms', response.data);
-            });
-        },
-        loadRoom: function loadRoom(state, roomId) {
-            var _this6 = this;
-
-            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/room/' + roomId).then(function (response) {
-                _this6.commit('setRoom', response.data);
-            });
-        }
-    },
-
-    getters: {
-        getRoomsByFloor: function getRoomsByFloor(state) {
-            return function (floorId) {
-                // todo sort
-                return state.rooms.filter(function (room) {
-                    return room.floor_id == floorId;
-                });
-            };
-        },
-        getRoom: function getRoom(state, roomId) {
-            return state.rooms.find(function (room) {
-                return room.id == roomId;
-            });
-        },
-
-        getRoomsByHouse: function getRoomsByHouse(state) {
-            return function (houseId) {
-                // TODO SORT THOSE ITEMS
-                return state.rooms.filter(function (room) {
-                    var floor = __WEBPACK_IMPORTED_MODULE_1__floors__["a" /* default */].state.floors.find(function (floorSearch) {
-                        return floorSearch.id == room.floor_id;
-                    });
-                    if (floor && floor != undefined) {
-                        var house = __WEBPACK_IMPORTED_MODULE_2__house__["a" /* default */].state.houses.find(function (house) {
-                            return house.id == floor.house_id;
-                        });
-                        if (house && house != undefined && house.id == houseId) {
-                            return true;
-                        }
-                    }
-
-                    return false;
-                }).sort(function (a, b) {
-                    return a.created_at > b.created_at ? 1 : b.created_at > a.created_at ? -1 : 0;
-                });
-                // TODO !!!! FIX THE SORT ORDER IMPORTANT!!!!!!!
-            };
-        }
-    }
-});
-
-/***/ }),
-/* 7 */
 /***/ (function(module, exports) {
 
 var g;
@@ -11888,7 +11576,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 8 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11906,7 +11594,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 9 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11917,7 +11605,7 @@ var settle = __webpack_require__(19);
 var buildURL = __webpack_require__(21);
 var parseHeaders = __webpack_require__(22);
 var isURLSameOrigin = __webpack_require__(23);
-var createError = __webpack_require__(10);
+var createError = __webpack_require__(7);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(24);
 
 module.exports = function xhrAdapter(config) {
@@ -12093,7 +11781,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 10 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12118,7 +11806,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 11 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12130,7 +11818,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 12 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12156,13 +11844,103 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 13 */
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    state: {
+        floors: []
+    },
+    mutations: {
+        setFloors: function setFloors(state, floors) {
+            floors.forEach(function (floor) {
+                var floorExists = state.floors.find(function (floorSearch) {
+                    return floorSearch.id == floor.id;
+                });
+                if (floorExists !== undefined) {
+                    state.floors.splice(state.floors.indexOf(floorExists), 1);
+                }
+                state.floors.push(floor);
+            });
+        },
+        updateFloorsByCount: function updateFloorsByCount(state, data) {
+            // TODO change house
+            var sortedFloors = this.getters.getFloorsByHouse(data.houseId);
+            if (data.floorCount <= sortedFloors.length) {
+                var i;
+                for (i = data.floorCount; i < sortedFloors.length; i++) {
+                    this.commit('deleteFloor', sortedFloors[i].id);
+                }
+            } else if (data.floorCount >= sortedFloors.length) {
+                var i;
+                for (i = sortedFloors.length; i < data.floorCount; i++) {
+                    this.commit('createFloor', data.houseId);
+                }
+            }
+        },
+        deleteFloor: function deleteFloor(state, id) {
+            // todo remove related Data
+            var floor = state.floors.find(function (existingInstance) {
+                return existingInstance.id == id;
+            });
+            if (floor !== undefined) {
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.delete('/api/floor/' + floor.id);
+                state.floors.splice(state.floors.indexOf(floor), 1);
+            }
+        },
+        createFloor: function createFloor(state, houseId) {
+            // TODO fix house_id and sort
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.post('/api/floor', {
+                house_id: houseId,
+                sort: 3
+            }).then(function (response) {
+                state.floors.push(response.data);
+            });
+        }
+    },
+    actions: {
+        loadFloors: function loadFloors(state, houseId) {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/house/' + houseId + '/floors').then(function (response) {
+                _this.commit('setFloors', response.data);
+            });
+        }
+    },
+
+    getters: {
+        findFloor: function findFloor(state, floorId) {
+            return state.floors.find(function (floorSearch) {
+                return floorSearch.id == floorId;
+            });
+        },
+
+
+        getFloorsByHouse: function getFloorsByHouse(state) {
+            return function (houseId) {
+                return state.floors.filter(function (floor) {
+                    return floor.house_id == houseId;
+                }).sort(function (a, b) {
+                    return a.sort > b.sort ? 1 : b.sort > a.sort ? -1 : 0;
+                });
+            };
+        }
+    }
+});
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(15);
 
 /***/ }),
-/* 14 */
+/* 12 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -12352,6 +12130,173 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_house_Houses__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_HouseView__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_house_HouseView___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_house_HouseView__);
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+    mode: 'history',
+    routes: [{
+        name: 'home',
+        path: '/home',
+        component: __WEBPACK_IMPORTED_MODULE_2__components_house_Houses___default.a
+    }, {
+        name: 'homeView',
+        path: '/house/:houseId',
+        component: __WEBPACK_IMPORTED_MODULE_3__components_house_HouseView___default.a
+    }]
+}));
+
+/***/ }),
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__floors__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__house__ = __webpack_require__(34);
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    state: {
+        rooms: []
+    },
+    mutations: {
+        setRooms: function setRooms(state, rooms) {
+            var _this = this;
+
+            rooms.forEach(function (room) {
+                _this.commit('setRoom', room);
+            });
+        },
+        setRoom: function setRoom(state, room) {
+            var roomExists = state.rooms.find(function (roomSearch) {
+                return roomSearch.id == room.id;
+            });
+            if (roomExists !== undefined) {
+                state.rooms.splice(state.rooms.indexOf(roomExists), 1);
+            }
+            state.rooms.push(room);
+        },
+        addEmptyRoom: function addEmptyRoom(state, floorId) {
+            var _this2 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.post('/api/room', {
+                name: '',
+                square_meter: '',
+                floor_id: floorId
+            }).then(function (response) {
+                _this2.commit('setRoom', response.data);
+            });
+        },
+        updateRoom: function updateRoom(state, room) {
+            var _this3 = this;
+
+            var roomExists = state.rooms.find(function (roomSearch) {
+                return roomSearch.id == room.id;
+            });
+            if (roomExists !== undefined) {
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.put('/api/room/' + room.id, room).then(function (response) {
+                    _this3.commit('setRoom', response.data);
+                });
+            }
+        },
+        deleteRoom: function deleteRoom(state, roomId) {
+            var roomExists = state.rooms.find(function (roomSearch) {
+                return roomSearch.id == roomId;
+            });
+            if (roomExists !== undefined) {
+                __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.delete('/api/room/' + roomId).then(function (response) {
+                    state.rooms.splice(state.rooms.indexOf(roomExists), 1);
+                });
+            }
+        }
+    },
+    actions: {
+        loadRoomsByFloor: function loadRoomsByFloor(state, floorId) {
+            var _this4 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/floor/' + floorId + '/rooms').then(function (response) {
+                _this4.commit('setRooms', response.data);
+            });
+        },
+        loadAllRoomsByHouse: function loadAllRoomsByHouse(state, houseId) {
+            var _this5 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/house/' + houseId + '/rooms').then(function (response) {
+                _this5.commit('setRooms', response.data);
+            });
+        },
+        loadRoom: function loadRoom(state, roomId) {
+            var _this6 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/room/' + roomId).then(function (response) {
+                _this6.commit('setRoom', response.data);
+            });
+        }
+    },
+
+    getters: {
+        getRoomsByFloor: function getRoomsByFloor(state) {
+            return function (floorId) {
+                // todo sort
+                return state.rooms.filter(function (room) {
+                    return room.floor_id == floorId;
+                });
+            };
+        },
+        getRoom: function getRoom(state) {
+            return function (roomId) {
+                return state.rooms.find(function (room) {
+                    return room.id == roomId;
+                });
+            };
+        },
+        getRoomsByHouse: function getRoomsByHouse(state) {
+            return function (houseId) {
+                // TODO SORT THOSE ITEMS
+                return state.rooms.filter(function (room) {
+                    var floor = __WEBPACK_IMPORTED_MODULE_1__floors__["a" /* default */].state.floors.find(function (floorSearch) {
+                        return floorSearch.id == room.floor_id;
+                    });
+                    if (floor && floor != undefined) {
+                        var house = __WEBPACK_IMPORTED_MODULE_2__house__["a" /* default */].state.houses.find(function (house) {
+                            return house.id == floor.house_id;
+                        });
+                        if (house && house != undefined && house.id == houseId) {
+                            return true;
+                        }
+                    }
+
+                    return false;
+                }).sort(function (a, b) {
+                    return a.created_at > b.created_at ? 1 : b.created_at > a.created_at ? -1 : 0;
+                });
+                // TODO !!!! FIX THE SORT ORDER IMPORTANT!!!!!!!
+            };
+        }
+    }
+});
+
+/***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12359,9 +12304,9 @@ process.umask = function() { return 0; };
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(8);
+var bind = __webpack_require__(5);
 var Axios = __webpack_require__(17);
-var defaults = __webpack_require__(5);
+var defaults = __webpack_require__(2);
 
 /**
  * Create an instance of Axios
@@ -12394,9 +12339,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(12);
+axios.Cancel = __webpack_require__(9);
 axios.CancelToken = __webpack_require__(31);
-axios.isCancel = __webpack_require__(11);
+axios.isCancel = __webpack_require__(8);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -12444,7 +12389,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(5);
+var defaults = __webpack_require__(2);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(26);
 var dispatchRequest = __webpack_require__(27);
@@ -12549,7 +12494,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(10);
+var createError = __webpack_require__(7);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -12984,8 +12929,8 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(28);
-var isCancel = __webpack_require__(11);
-var defaults = __webpack_require__(5);
+var isCancel = __webpack_require__(8);
+var defaults = __webpack_require__(2);
 var isAbsoluteURL = __webpack_require__(29);
 var combineURLs = __webpack_require__(30);
 
@@ -13144,7 +13089,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(12);
+var Cancel = __webpack_require__(9);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -13237,12 +13182,20 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(o){return typeof o}:function(o){return o&&"function"==typeof Symbol&&o.constructor===Symbol&&o!==Symbol.prototype?"symbol":typeof o};!function(){function o(e,t){if(!o.installed){if(o.installed=!0,!t)return void console.error("You have to install axios");e.axios=t,Object.defineProperties(e.prototype,{axios:{get:function(){return t}},$http:{get:function(){return t}}})}}"object"==( false?"undefined":_typeof(exports))?module.exports=o: true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function(){return o}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):window.Vue&&window.axios&&Vue.use(o,window.axios)}();
+
+/***/ }),
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router__ = __webpack_require__(13);
 
 
 
@@ -13271,10 +13224,11 @@ module.exports = function spread(callback) {
             var _this = this;
 
             __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.post('/api/house', {
-                user_id: CONFIG.USER_ID
+                user_id: CONFIG.USER_ID,
+                residents_count: 1
             }).then(function (response) {
                 _this.commit('setHouse', response.data);
-                __WEBPACK_IMPORTED_MODULE_1__router__["a" /* default */].push('/house/' + response.data.id + '/residents');
+                __WEBPACK_IMPORTED_MODULE_1__router__["a" /* default */].push('/house/' + response.data.id);
             });
         }
     },
@@ -13297,14 +13251,6 @@ module.exports = function spread(callback) {
         }
     }
 });
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(o){return typeof o}:function(o){return o&&"function"==typeof Symbol&&o.constructor===Symbol&&o!==Symbol.prototype?"symbol":typeof o};!function(){function o(e,t){if(!o.installed){if(o.installed=!0,!t)return void console.error("You have to install axios");e.axios=t,Object.defineProperties(e.prototype,{axios:{get:function(){return t}},$http:{get:function(){return t}}})}}"object"==( false?"undefined":_typeof(exports))?module.exports=o: true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function(){return o}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):window.Vue&&window.axios&&Vue.use(o,window.axios)}();
 
 /***/ }),
 /* 35 */,
@@ -13331,11 +13277,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_App__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_App___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_App__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_axios__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_axios__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue_axios__);
 
 
@@ -13423,7 +13369,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 46 */
@@ -13616,7 +13562,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(14)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(12)))
 
 /***/ }),
 /* 47 */
@@ -13627,7 +13573,7 @@ var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(48)
 /* template */
-var __vue_template__ = __webpack_require__(77)
+var __vue_template__ = __webpack_require__(68)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -13671,7 +13617,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(13);
 //
 //
 //
@@ -13690,7 +13636,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         if (this.houseId) {
             this.$store.dispatch('loadHouse', this.houseId);
-            this.$store.dispatch('loadFloors', this.houseId);
         }
     }
 });
@@ -16391,6 +16336,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     methods: {
@@ -16408,20 +16357,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _c("div", { staticClass: "panel-heading" }, [
-      _vm._v("\n        Houses\n        "),
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-sm btn-primary pull-right",
-          on: { click: _vm.createHouse }
-        },
-        [_vm._v("Nieuw huis")]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel-body" }, [_vm._v("\n        Huizen\n    ")])
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "panel panel-default" }, [
+        _c("div", { staticClass: "panel-heading" }, [
+          _vm._v("\n                Houses\n                "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-sm btn-primary pull-right",
+              on: { click: _vm.createHouse }
+            },
+            [_vm._v("Nieuw huis")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "panel-body" }, [
+          _vm._v("\n                Huizen\n            ")
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -16443,7 +16398,7 @@ var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(54)
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(67)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16460,7 +16415,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\HowManyFloors.vue"
+Component.options.__file = "resources\\assets\\js\\components\\house\\HouseView.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -16469,9 +16424,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-16f011b8", Component.options)
+    hotAPI.createRecord("data-v-29c5e4fc", Component.options)
   } else {
-    hotAPI.reload("data-v-16f011b8", Component.options)
+    hotAPI.reload("data-v-29c5e4fc", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -16487,7 +16442,11 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layout_Sidebar_vue__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layout_Sidebar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__layout_Sidebar_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Floors_vue__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_Floors_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__pages_Floors_vue__);
 //
 //
 //
@@ -16505,41 +16464,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            floorCountEdit: null,
             houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId)
         };
     },
-
-    computed: {
-        floorCount: {
-            get: function get() {
-                return this.floorCountEdit = this.$store.getters.getFloorsByHouse(this.houseId).length;
-            },
-            set: function set(value) {
-                this.floorCountEdit = value;
-            }
-        }
+    mounted: function mounted() {
+        this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
     },
-    methods: {
-        lastPage: function lastPage() {
-            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/residents');
-        },
-        saveRoomCount: function saveRoomCount() {
-            var _this = this;
 
-            this.$store.commit('updateFloorsByCount', { 'floorCount': this.floorCountEdit, 'houseId': this.houseId });
-
-            // TODO PROMISE instead of timeout
-            setTimeout(function () {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + _this.houseId + '/floor/' + _this.$store.getters.getFloorsByHouse(_this.houseId)[0].id);
-            }, 300);
-        }
+    components: {
+        Sidebar: __WEBPACK_IMPORTED_MODULE_1__layout_Sidebar_vue___default.a,
+        Floors: __WEBPACK_IMPORTED_MODULE_2__pages_Floors_vue___default.a
     }
 });
 
@@ -16547,84 +16490,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 1")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
-      [
-        _vm._v("\n        Hoeveel verdiepingen heeft de woning? "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.floorCount,
-              expression: "floorCount"
-            }
-          ],
-          staticStyle: { width: "75px" },
-          attrs: { type: "number" },
-          domProps: { value: _vm.floorCount },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.floorCount = $event.target.value
-            }
-          }
-        })
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel-footer" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "a",
-            { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
-            [_vm._v("Vorige")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-primary pull-right",
-              on: { click: _vm.saveRoomCount }
-            },
-            [_vm._v("Volgende")]
-          )
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-16f011b8", module.exports)
-  }
-}
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(57)
+var __vue_script__ = __webpack_require__(56)
 /* template */
-var __vue_template__ = __webpack_require__(58)
+var __vue_template__ = __webpack_require__(57)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16641,7 +16512,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\WitchRooms.vue"
+Component.options.__file = "resources\\assets\\js\\components\\house\\layout\\Sidebar.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -16650,9 +16521,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6c946753", Component.options)
+    hotAPI.createRecord("data-v-31f4919d", Component.options)
   } else {
-    hotAPI.reload("data-v-6c946753", Component.options)
+    hotAPI.reload("data-v-31f4919d", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -16663,22 +16534,11 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(4);
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -16713,253 +16573,67 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
 
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId),
-            floorId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.floorId)
-        };
-    },
-
-    watch: {
-        '$route': function $route(to, from) {
-            this.houseId = parseInt(to.params.houseId);
-            this.floorId = parseInt(to.params.floorId);
-            this.loadPage();
-        }
-    },
-    computed: {
-        houseFloors: function houseFloors() {
-            return this.$store.getters.getFloorsByHouse(this.houseId);
-        },
-        floor: function floor() {
-            return __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].state, this.floorId);
-        },
-        storey: function storey() {
-            if (this.houseFloors && this.floor) {
-                return this.houseFloors.indexOf(this.floor) + 1;
-            }
-        },
-        allRooms: function allRooms() {
-            return this.$store.getters.getRoomsByHouse(this.houseId);
-        },
-        rooms: function rooms() {
-            return this.$store.getters.getRoomsByFloor(this.floorId);
-        }
-    },
-    methods: {
-        updateRoom: function updateRoom(room) {
-            this.$store.commit('updateRoom', room);
-        },
-        lastPage: function lastPage() {
-            var index = this.houseFloors.indexOf(this.floor);
-            if (0 >= index) {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/floors');
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/floor/' + this.houseFloors[index - 1].id);
-            }
-        },
-        nextPage: function nextPage() {
-            var index = this.houseFloors.indexOf(this.floor);
-            if (this.houseFloors[index + 1]) {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/floor/' + this.houseFloors[index + 1].id);
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/devices/' + this.allRooms[0].id);
-            }
-        },
-        deleteRoom: function deleteRoom(roomId) {
-            this.$store.commit('deleteRoom', roomId);
-        },
-        addRoom: function addRoom() {
-            this.$store.commit('addEmptyRoom', this.floorId);
-        },
-        loadPage: function loadPage() {
-            this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
-        }
-    },
-    created: function created() {
-        this.loadPage();
-    }
-});
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "sidebar-wrapper" } }, [
+      _c("ul", { staticClass: "sidebar-nav" }, [
+        _c("li", { staticClass: "sidebar-brand" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("\n                Start Bootstrap\n            ")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Dashboard")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Shortcuts")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Overview")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Events")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("About")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Services")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Contact")])])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-31f4919d", module.exports)
+  }
+}
 
 /***/ }),
 /* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
-      [
-        _vm._v(
-          "\n        Welke ruimtes bevinden zich op de " +
-            _vm._s(_vm.storey) +
-            "e verdieping?\n        "
-        ),
-        _c("table", { staticClass: "table", staticStyle: { width: "100%" } }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.rooms, function(room, index) {
-              return _vm.rooms
-                ? _c("tr", [
-                    _c("td", [_vm._v(_vm._s(index + 1))]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: room.name,
-                            expression: "room.name"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: room.name },
-                        on: {
-                          change: function($event) {
-                            _vm.updateRoom(room)
-                          },
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(room, "name", $event.target.value)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: room.square_meter,
-                            expression: "room.square_meter"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        staticStyle: { width: "100px" },
-                        attrs: { type: "number" },
-                        domProps: { value: room.square_meter },
-                        on: {
-                          change: function($event) {
-                            _vm.updateRoom(room)
-                          },
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(room, "square_meter", $event.target.value)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-danger",
-                          on: {
-                            click: function($event) {
-                              _vm.deleteRoom(room.id)
-                            }
-                          }
-                        },
-                        [_c("i", { staticClass: "far fa-trash-alt" })]
-                      )
-                    ])
-                  ])
-                : _vm._e()
-            })
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-primary pull-right",
-            on: { click: _vm.addRoom }
-          },
-          [_vm._v("Kamer toevoegen")]
-        )
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel-footer" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "a",
-            { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
-            [_vm._v("Vorige")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-primary pull-right",
-              on: { click: _vm.nextPage }
-            },
-            [_vm._v("Volgende")]
-          )
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v(" ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("m2")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6c946753", module.exports)
-  }
-}
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(60)
+var __vue_script__ = __webpack_require__(59)
 /* template */
-var __vue_template__ = __webpack_require__(61)
+var __vue_template__ = __webpack_require__(66)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16976,7 +16650,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\WitchDevices.vue"
+Component.options.__file = "resources\\assets\\js\\components\\house\\pages\\Floors.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -16985,9 +16659,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-673e99f8", Component.options)
+    hotAPI.createRecord("data-v-12b30e72", Component.options)
   } else {
-    hotAPI.reload("data-v-673e99f8", Component.options)
+    hotAPI.reload("data-v-12b30e72", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -16998,14 +16672,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__floor_row_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__floor_row_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__floor_row_vue__);
 //
 //
 //
@@ -17020,339 +16693,114 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId),
-            roomId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.roomId)
-        };
-    },
-
-    watch: {
-        '$route': function $route(to, from) {
-            this.houseId = parseInt(to.params.houseId);
-            this.roomId = parseInt(to.params.roomId);
-            this.loadPage();
-        }
+    props: {
+        houseId: Number
     },
     computed: {
-        houseFloors: function houseFloors() {
+        floors: function floors() {
             return this.$store.getters.getFloorsByHouse(this.houseId);
-        },
-        storey: function storey() {
-            return this.houseFloors.indexOf(this.floor) + 1;
-        },
-        allRooms: function allRooms() {
-            return this.$store.getters.getRoomsByHouse(this.houseId);
-        },
-        room: function room() {
-            return __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].getters.getRoom(__WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].state, this.roomId);
-        },
-        floor: function floor() {
-            if (this.room) {
-                return __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].state, this.room.floor_id);
-            }
-        },
-        devices: function devices() {
-            return this.$store.getters.getDevicesByRoom(this.roomId);
         }
     },
-    methods: {
-        loadPage: function loadPage() {
-            this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
-            this.$store.dispatch('loadDevicesByRoom', this.roomId);
-            this.$store.dispatch('loadRoom', this.roomId);
-        },
-        addDevice: function addDevice() {
-            this.$store.commit('addEmptyDevice', this.roomId);
-        },
-        updateDevice: function updateDevice(device) {
-            this.$store.commit('updateDevice', device);
-        },
-        deleteDevice: function deleteDevice(deviceId) {
-            this.$store.commit('deleteDevice', deviceId);
-        },
-        nextPage: function nextPage() {
-            var index = this.allRooms.indexOf(this.room);
-            if (this.allRooms[index + 1]) {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/devices/' + this.allRooms[index + 1].id);
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/lights/' + this.allRooms[0].id);
-            }
-        },
-        lastPage: function lastPage() {
-            var index = this.allRooms.indexOf(this.room);
-            if (index <= 0) {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/floor/' + this.houseFloors[this.houseFloors.length - 1].id);
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/devices/' + this.allRooms[index - 1].id);
-            }
+    mounted: function mounted() {
+        if (this.houseId) {
+            this.$store.dispatch('loadFloors', this.houseId);
         }
     },
-    created: function created() {
-        this.loadPage();
+
+    components: {
+        FloorRow: __WEBPACK_IMPORTED_MODULE_0__floor_row_vue___default.a
     }
 });
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm.room
-    ? _c("div", { staticClass: "panel panel-default" }, [
-        _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
-          [
-            _vm._v(
-              "\n        Welke apparaten bevinden zich in " +
-                _vm._s(_vm.room.name ? _vm.room.name : "..") +
-                " op de " +
-                _vm._s(_vm.storey) +
-                "e verdieping?\n        "
-            ),
-            _c(
-              "table",
-              { staticClass: "table", staticStyle: { width: "100%" } },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.devices, function(device) {
-                    return _c("tr", [
-                      _c("td", [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: device.name,
-                              expression: "device.name"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          domProps: { value: device.name },
-                          on: {
-                            change: function($event) {
-                              _vm.updateDevice(device)
-                            },
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(device, "name", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: device.amount,
-                              expression: "device.amount"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "number" },
-                          domProps: { value: device.amount },
-                          on: {
-                            change: function($event) {
-                              _vm.updateDevice(device)
-                            },
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(device, "amount", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: device.type_id,
-                                  expression: "device.type_id"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              on: {
-                                change: [
-                                  function($event) {
-                                    var $$selectedVal = Array.prototype.filter
-                                      .call($event.target.options, function(o) {
-                                        return o.selected
-                                      })
-                                      .map(function(o) {
-                                        var val =
-                                          "_value" in o ? o._value : o.value
-                                        return val
-                                      })
-                                    _vm.$set(
-                                      device,
-                                      "type_id",
-                                      $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
-                                    )
-                                  },
-                                  function($event) {
-                                    _vm.updateDevice(device)
-                                  }
-                                ]
-                              }
-                            },
-                            [
-                              _c("option", { attrs: { value: "1" } }, [
-                                _vm._v("Watt")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "2" } }, [
-                                _vm._v("Gas")
-                              ])
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-danger",
-                            on: {
-                              click: function($event) {
-                                _vm.deleteDevice(device.id)
-                              }
-                            }
-                          },
-                          [_c("i", { staticClass: "far fa-trash-alt" })]
-                        )
-                      ])
-                    ])
-                  })
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-primary pull-right",
-                on: { click: _vm.addDevice }
-              },
-              [_vm._v("Apparaat toevoegen")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "panel-footer" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-12" }, [
-              _c(
-                "a",
-                { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
-                [_vm._v("Vorige")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary pull-right",
-                  on: { click: _vm.nextPage }
-                },
-                [_vm._v("Volgende")]
-              )
-            ])
-          ])
-        ])
-      ])
-    : _vm._e()
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Type")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(61)
+/* template */
+var __vue_template__ = __webpack_require__(65)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\house\\floor\\row.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
   module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-673e99f8", module.exports)
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5cca2747", Component.options)
+  } else {
+    hotAPI.reload("data-v-5cca2747", Component.options)
   }
-}
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__room_row_vue__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__room_row_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__room_row_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        floorId: Number
+    },
+    computed: {
+        rooms: function rooms() {
+            return this.$store.getters.getRoomsByFloor(this.floorId);
+        }
+    },
+    mounted: function mounted() {
+        this.$store.dispatch('loadRoomsByFloor', this.floorId);
+    },
+
+    components: {
+        RoomRow: __WEBPACK_IMPORTED_MODULE_0__room_row_vue___default.a
+    }
+});
 
 /***/ }),
 /* 62 */
@@ -17380,7 +16828,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\WitchLights.vue"
+Component.options.__file = "resources\\assets\\js\\components\\house\\floor\\room\\row.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -17389,9 +16837,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-9f05a65c", Component.options)
+    hotAPI.createRecord("data-v-43662a88", Component.options)
   } else {
-    hotAPI.reload("data-v-9f05a65c", Component.options)
+    hotAPI.reload("data-v-43662a88", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -17407,9 +16855,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__ = __webpack_require__(6);
 //
 //
 //
@@ -17419,117 +16864,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId),
-            roomId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.roomId)
-        };
-    },
-
-    watch: {
-        '$route': function $route(to, from) {
-            this.houseId = parseInt(to.params.houseId);
-            this.roomId = parseInt(to.params.roomId);
-            this.loadPage();
-        }
+    props: {
+        roomId: Number
     },
     computed: {
-        houseFloors: function houseFloors() {
-            return this.$store.getters.getFloorsByHouse(this.houseId);
-        },
-        storey: function storey() {
-            return this.houseFloors.indexOf(this.floor) + 1;
-        },
-        allRooms: function allRooms() {
-            return this.$store.getters.getRoomsByHouse(this.houseId);
-        },
         room: function room() {
-            return __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].getters.getRoom(__WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].state, this.roomId);
-        },
-        floor: function floor() {
-            if (this.room) {
-                return __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].state, this.room.floor_id);
-            }
-        },
-        lights: function lights() {
-            return this.$store.getters.getLightsByRoom(this.roomId);
+            return this.$store.getters.getRoom(this.roomId);
         }
     },
-    methods: {
-        loadPage: function loadPage() {
-            this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
-            this.$store.dispatch('loadLightsByRoom', this.roomId);
-            this.$store.dispatch('loadRoom', this.roomId);
-        },
-        addLight: function addLight() {
-            this.$store.commit('addEmptyLight', this.roomId);
-        },
-        updateLight: function updateLight(light) {
-            this.$store.commit('updateLight', light);
-        },
-        deleteLight: function deleteLight(lightId) {
-            this.$store.commit('deleteLight', lightId);
-        },
-        nextPage: function nextPage() {
-            var index = this.allRooms.indexOf(this.room);
-            if (this.allRooms[index + 1]) {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/lights/' + this.allRooms[index + 1].id);
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/radiators/' + this.allRooms[0].id);
-            }
-        },
-        lastPage: function lastPage() {
-            var index = this.allRooms.indexOf(this.room);
-            if (index <= 0) {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/devices/' + this.allRooms[this.allRooms.length - 1].id);
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/lights/' + this.allRooms[index - 1].id);
-            }
-        }
-    },
-    created: function created() {
-        this.loadPage();
-    }
+    mounted: function mounted() {},
+
+    components: {}
 });
 
 /***/ }),
@@ -17540,140 +16887,113 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.room
-    ? _c("div", { staticClass: "panel panel-default" }, [
-        _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
-          [
-            _vm._v(
-              "\n        Welke verlichting bevindt zich in de " +
-                _vm._s(_vm.room.name ? _vm.room.name : "") +
-                " op de " +
-                _vm._s(_vm.storey) +
-                "e verdieping?\n        "
-            ),
-            _c(
-              "table",
-              { staticClass: "table", staticStyle: { width: "100%" } },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.lights, function(light) {
-                    return _c("tr", [
-                      _c("td", [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: light.name,
-                              expression: "light.name"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          domProps: { value: light.name },
-                          on: {
-                            change: function($event) {
-                              _vm.updateLight(light)
-                            },
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(light, "name", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: light.amount,
-                              expression: "light.amount"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "number" },
-                          domProps: { value: light.amount },
-                          on: {
-                            change: function($event) {
-                              _vm.updateLight(light)
-                            },
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(light, "amount", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v("\n                    Watt\n                ")
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-danger",
-                            on: {
-                              click: function($event) {
-                                _vm.deleteLight(light.id)
-                              }
-                            }
-                          },
-                          [_c("i", { staticClass: "far fa-trash-alt" })]
-                        )
-                      ])
-                    ])
-                  })
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-primary pull-right",
-                on: { click: _vm.addLight }
-              },
-              [_vm._v("Verlichting toevoegen")]
-            )
-          ]
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "col-lg-11 col-lg-offset-1",
+        staticStyle: {
+          "background-color": "lightgray",
+          "margin-bottom": "10px",
+          padding: "10px"
+        }
+      },
+      [
+        _vm._v(
+          "\n        " +
+            _vm._s(_vm.room.name) +
+            " id: " +
+            _vm._s(_vm.room.id) +
+            "\n        "
         ),
-        _vm._v(" "),
-        _c("div", { staticClass: "panel-footer" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-12" }, [
-              _c(
-                "a",
-                { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
-                [_vm._v("Vorige")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary pull-right",
-                  on: { click: _vm.nextPage }
-                },
-                [_vm._v("Volgende")]
-              )
-            ])
-          ])
+        _c("a", { staticClass: "btn btn-xs btn-danger pull-right" }, [
+          _vm._v("-")
         ])
-      ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-43662a88", module.exports)
+  }
+}
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "div",
+        {
+          staticClass: "col-lg-12",
+          staticStyle: {
+            "background-color": "lightgray",
+            margin: "10px",
+            padding: "10px"
+          }
+        },
+        [
+          _vm._v("\n        Verdieping id: " + _vm._s(_vm.floorId) + " "),
+          _c("a", { staticClass: "btn btn-sm btn-primary pull-right" }, [
+            _vm._v("Kamer +")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _vm._l(_vm.rooms, function(room) {
+        return _c("RoomRow", { key: room.id, attrs: { roomId: room.id } })
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5cca2747", module.exports)
+  }
+}
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.floors
+    ? _c(
+        "div",
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("hr", { staticStyle: { "border-top": "1px solid black" } }),
+          _vm._v(" "),
+          _vm._l(_vm.floors, function(floor) {
+            return _c("FloorRow", {
+              key: floor.id,
+              attrs: { floorId: floor.id }
+            })
+          })
+        ],
+        2
+      )
     : _vm._e()
 }
 var staticRenderFns = [
@@ -17681,15 +17001,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Aantal")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")])
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c("a", { staticClass: "btn btn-primary" }, [_vm._v("Verdieping +")])
       ])
     ])
   }
@@ -17699,187 +17013,9 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-9f05a65c", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-12b30e72", module.exports)
   }
 }
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(66)
-/* template */
-var __vue_template__ = __webpack_require__(67)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\WitchRadiator.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-9bd79182", Component.options)
-  } else {
-    hotAPI.reload("data-v-9bd79182", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 66 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__ = __webpack_require__(6);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId),
-            roomId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.roomId)
-        };
-    },
-
-    watch: {
-        '$route': function $route(to, from) {
-            this.houseId = parseInt(to.params.houseId);
-            this.roomId = parseInt(to.params.roomId);
-            this.loadPage();
-        }
-    },
-    computed: {
-        houseFloors: function houseFloors() {
-            return this.$store.getters.getFloorsByHouse(this.houseId);
-        },
-        storey: function storey() {
-            return this.houseFloors.indexOf(this.floor) + 1;
-        },
-        allRooms: function allRooms() {
-            return this.$store.getters.getRoomsByHouse(this.houseId);
-        },
-        room: function room() {
-            return __WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].getters.getRoom(__WEBPACK_IMPORTED_MODULE_2__store_modules_rooms__["a" /* default */].state, this.roomId);
-        },
-        floor: function floor() {
-            if (this.room) {
-                return __WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].getters.findFloor(__WEBPACK_IMPORTED_MODULE_1__store_modules_floors__["a" /* default */].state, this.room.floor_id);
-            }
-        },
-        radiators: function radiators() {
-            return this.$store.getters.getRadiatorsByRoom(this.roomId);
-        }
-    },
-    methods: {
-        loadPage: function loadPage() {
-            this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
-            this.$store.dispatch('loadRadiatorsByRoom', this.roomId);
-            this.$store.dispatch('loadRoom', this.roomId);
-        },
-        addRadiator: function addRadiator() {
-            this.$store.commit('addEmptyRadiator', this.roomId);
-        },
-        updateRadiator: function updateRadiator(light) {
-            this.$store.commit('updateRadiator', light);
-        },
-        deleteRadiator: function deleteRadiator(radiatorId) {
-            this.$store.commit('deleteRadiator', radiatorId);
-        },
-        nextPage: function nextPage() {
-            var index = this.allRooms.indexOf(this.room);
-            if (this.allRooms[index + 1]) {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/radiators/' + this.allRooms[index + 1].id);
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/outside/devices');
-            }
-        },
-        lastPage: function lastPage() {
-            var index = this.allRooms.indexOf(this.room);
-            if (index <= 0) {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/lights/' + this.allRooms[this.allRooms.length - 1].id);
-            } else {
-                __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/radiators/' + this.allRooms[index - 1].id);
-            }
-        }
-    },
-    created: function created() {
-        this.loadPage();
-    }
-});
 
 /***/ }),
 /* 67 */
@@ -17889,1213 +17025,34 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.room
-    ? _c("div", { staticClass: "panel panel-default" }, [
-        _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
-          [
-            _vm._v(
-              "\n        Welke radiatoren bevindt zich in de " +
-                _vm._s(_vm.room.name ? _vm.room.name : "") +
-                " op de " +
-                _vm._s(_vm.storey) +
-                "e verdieping?\n        "
-            ),
-            _c(
-              "table",
-              { staticClass: "table", staticStyle: { width: "100%" } },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.radiators, function(radiator) {
-                    return _c("tr", [
-                      _c("td", [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: radiator.name,
-                              expression: "radiator.name"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          domProps: { value: radiator.name },
-                          on: {
-                            change: function($event) {
-                              _vm.updateRadiator(radiator)
-                            },
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(radiator, "name", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: radiator.length,
-                              expression: "radiator.length"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "number" },
-                          domProps: { value: radiator.length },
-                          on: {
-                            change: function($event) {
-                              _vm.updateRadiator(radiator)
-                            },
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(radiator, "length", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(
-                          "\n                    cm lengte\n                "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-danger",
-                            on: {
-                              click: function($event) {
-                                _vm.deleteRadiator(radiator.id)
-                              }
-                            }
-                          },
-                          [_c("i", { staticClass: "far fa-trash-alt" })]
-                        )
-                      ])
-                    ])
-                  })
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-primary pull-right",
-                on: { click: _vm.addRadiator }
-              },
-              [_vm._v("Verlichting toevoegen")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "panel-footer" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-12" }, [
-              _c(
-                "a",
-                { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
-                [_vm._v("Vorige")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary pull-right",
-                  on: { click: _vm.nextPage }
-                },
-                [_vm._v("Volgende")]
-              )
-            ])
-          ])
-        ])
-      ])
-    : _vm._e()
+  return _c(
+    "div",
+    { staticClass: "toggled", attrs: { id: "wrapper" } },
+    [
+      _c("Sidebar"),
+      _vm._v(" "),
+      _c(
+        "div",
+        { attrs: { id: "page-content-wrapper" } },
+        [_c("Floors", { attrs: { houseId: _vm.houseId } })],
+        1
+      )
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Aantal")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-9bd79182", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-29c5e4fc", module.exports)
   }
 }
 
 /***/ }),
 /* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(69)
-/* template */
-var __vue_template__ = __webpack_require__(70)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\WitchOutsideDevices.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2ec3f0a6", Component.options)
-  } else {
-    hotAPI.reload("data-v-2ec3f0a6", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 69 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId)
-        };
-    },
-
-    watch: {
-        '$route': function $route(to, from) {
-            this.houseId = parseInt(to.params.houseId);
-            this.loadPage();
-        }
-    },
-    computed: {
-        outsideDevices: function outsideDevices() {
-            return this.$store.getters.getOutsideDevicesByHouse(this.houseId);
-        },
-        allRooms: function allRooms() {
-            return this.$store.getters.getRoomsByHouse(this.houseId);
-        }
-    },
-    methods: {
-        loadPage: function loadPage() {
-            this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
-            this.$store.dispatch('loadOutsideDevicesByHouse', this.houseId);
-        },
-        addOutsideDevice: function addOutsideDevice() {
-            this.$store.commit('addEmptyOutsideDevice', this.houseId);
-        },
-        updateOutsideDevice: function updateOutsideDevice(outsideDevice) {
-            this.$store.commit('updateOutsideDevice', outsideDevice);
-        },
-        deleteOutsideDevice: function deleteOutsideDevice(OutsideDeviceId) {
-            this.$store.commit('deleteOutsideDevice', OutsideDeviceId);
-        },
-        lastPage: function lastPage() {
-            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/radiators/' + this.allRooms[this.allRooms.length - 1].id);
-        },
-        nextPage: function nextPage() {
-            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/outside/lights');
-        }
-    },
-    created: function created() {
-        this.loadPage();
-    }
-});
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
-      [
-        _vm._v("\n        Welke apparaten bevinden zich buiten?\n        "),
-        _c("table", { staticClass: "table", staticStyle: { width: "100%" } }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.outsideDevices, function(outsideDevice) {
-              return _c("tr", [
-                _c("td", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: outsideDevice.name,
-                        expression: "outsideDevice.name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    domProps: { value: outsideDevice.name },
-                    on: {
-                      change: function($event) {
-                        _vm.updateOutsideDevice(outsideDevice)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(outsideDevice, "name", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: outsideDevice.amount,
-                        expression: "outsideDevice.amount"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "number" },
-                    domProps: { value: outsideDevice.amount },
-                    on: {
-                      change: function($event) {
-                        _vm.updateOutsideDevice(outsideDevice)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(outsideDevice, "amount", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-danger",
-                      on: {
-                        click: function($event) {
-                          _vm.deleteOutsideDevice(outsideDevice.id)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "far fa-trash-alt" })]
-                  )
-                ])
-              ])
-            })
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-primary pull-right",
-            on: { click: _vm.addOutsideDevice }
-          },
-          [_vm._v("Apparaat toevoegen")]
-        )
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel-footer" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "a",
-            { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
-            [_vm._v("Vorige")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-primary pull-right",
-              on: { click: _vm.nextPage }
-            },
-            [_vm._v("Volgende")]
-          )
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Aantal")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2ec3f0a6", module.exports)
-  }
-}
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(72)
-/* template */
-var __vue_template__ = __webpack_require__(73)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\WitchOutsideLights.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-494eb47d", Component.options)
-  } else {
-    hotAPI.reload("data-v-494eb47d", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 72 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId)
-        };
-    },
-
-    watch: {
-        '$route': function $route(to, from) {
-            this.houseId = parseInt(to.params.houseId);
-            this.loadPage();
-        }
-    },
-    computed: {
-        outsideLights: function outsideLights() {
-            return this.$store.getters.getOutsideLightsByHouse(this.houseId);
-        }
-    },
-    methods: {
-        loadPage: function loadPage() {
-            this.$store.dispatch('loadOutsideLightsByHouse', this.houseId);
-        },
-        addOutsideLight: function addOutsideLight() {
-            this.$store.commit('addEmptyOutsideLight', this.houseId);
-        },
-        updateOutsideLight: function updateOutsideLight(outsideLight) {
-            this.$store.commit('updateOutsideLight', outsideLight);
-        },
-        deleteOutsideLight: function deleteOutsideLight(OutsideLightId) {
-            this.$store.commit('deleteOutsideLight', OutsideLightId);
-        },
-        lastPage: function lastPage() {
-            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/outside/devices');
-        },
-        nextPage: function nextPage() {
-            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/overview');
-        }
-    },
-    created: function created() {
-        this.loadPage();
-    }
-});
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 2")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
-      [
-        _vm._v("\n        Welke verlichting bevindt zich buiten?\n        "),
-        _c("table", { staticClass: "table", staticStyle: { width: "100%" } }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.outsideLights, function(outsideLight) {
-              return _c("tr", [
-                _c("td", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: outsideLight.name,
-                        expression: "outsideLight.name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    domProps: { value: outsideLight.name },
-                    on: {
-                      change: function($event) {
-                        _vm.updateOutsideLight(outsideLight)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(outsideLight, "name", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: outsideLight.amount,
-                        expression: "outsideLight.amount"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "number" },
-                    domProps: { value: outsideLight.amount },
-                    on: {
-                      change: function($event) {
-                        _vm.updateOutsideLight(outsideLight)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(outsideLight, "amount", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _vm._v("\n                    Watt\n                ")
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-danger",
-                      on: {
-                        click: function($event) {
-                          _vm.deleteOutsideLight(outsideLight.id)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "far fa-trash-alt" })]
-                  )
-                ])
-              ])
-            })
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-primary pull-right",
-            on: { click: _vm.addOutsideLight }
-          },
-          [_vm._v("Licht toevoegen")]
-        )
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel-footer" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c(
-            "a",
-            { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
-            [_vm._v("Vorige")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-primary pull-right",
-              on: { click: _vm.nextPage }
-            },
-            [_vm._v("Volgende")]
-          )
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Aantal")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-494eb47d", module.exports)
-  }
-}
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(75)
-/* template */
-var __vue_template__ = __webpack_require__(76)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\house\\HouseOverview.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-96676854", Component.options)
-  } else {
-    hotAPI.reload("data-v-96676854", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 75 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__overview_information_types_row_vue__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__overview_information_types_row_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__overview_information_types_row_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            loading: true,
-            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId)
-        };
-    },
-
-    watch: {
-        '$route': function $route(to, from) {
-            this.houseId = parseInt(to.params.houseId);
-            this.loadPage();
-        }
-    },
-    computed: {
-        allRooms: function allRooms() {
-            return this.$store.getters.getRoomsByHouse(this.houseId);
-        },
-        houseDevices: function houseDevices() {
-            return this.$store.getters.getDevicesByHouse(this.houseId);
-        },
-        houseLights: function houseLights() {
-            return this.$store.getters.getLightsByHouse(this.houseId);
-        },
-        houseRadiators: function houseRadiators() {
-            return this.$store.getters.getRadiatorsByHouse(this.houseId);
-        },
-        informationTypes: function informationTypes() {
-            return this.$store.getters.allInformationTypes();
-        }
-    },
-    methods: {
-        loadPage: function loadPage() {
-            this.loading = true;
-            this.$store.dispatch('loadAllRoomsByHouse', this.houseId);
-            this.$store.dispatch('loadOutsideLightsByHouse', this.houseId);
-            this.$store.dispatch('loadOutsideDevicesByHouse', this.houseId);
-            this.$store.dispatch('loadDevicesByHouse', this.houseId);
-            this.$store.dispatch('loadLightsByHouse', this.houseId);
-            this.$store.dispatch('loadRadiatorsByHouse', this.houseId);
-            this.$store.dispatch('loadInformationTypes');
-
-            // TODO CHECK IF NEEDED
-            this.$store.dispatch('loadInformationSources');
-
-            this.loading = false;
-        },
-        deviceType: function deviceType(typeId) {
-            if (typeId == 1) {
-                return 'Watt';
-            } else if (typeId == 2) {
-                return 'Gas';
-            } else {
-                return 'onbekend';
-            }
-        }
-    },
-    mounted: function mounted() {
-        this.loadPage();
-    },
-
-    components: {
-        InformationTypeRow: __WEBPACK_IMPORTED_MODULE_1__overview_information_types_row_vue___default.a
-    }
-});
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [
-        _vm._v("\n            Delen van informatie\n        ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c("table", { staticClass: "table table-striped" }, [
-          _c(
-            "tbody",
-            _vm._l(_vm.informationTypes, function(informationType, index) {
-              return _c("InformationTypeRow", {
-                key: index,
-                attrs: { informationType: informationType }
-              })
-            })
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [
-        _vm._v("\n            Kamers\n        ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c("table", { staticClass: "table table-striped" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.allRooms, function(room, index) {
-              return _c("tr", [
-                _c("td", [_vm._v(_vm._s(index + 1))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(room.name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(room.square_meter) + " m2")])
-              ])
-            })
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [
-        _vm._v("\n            Apparaten\n        ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c("table", { staticClass: "table table-striped" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.houseDevices, function(device, index) {
-              return _c("tr", [
-                _c("td", [_vm._v(_vm._s(index + 1))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(device.name))]),
-                _vm._v(" "),
-                _c("td", [
-                  _vm._v(
-                    _vm._s(device.amount) +
-                      " " +
-                      _vm._s(_vm.deviceType(device.type_id))
-                  )
-                ])
-              ])
-            })
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [
-        _vm._v("\n            Verlichting\n        ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c("table", { staticClass: "table table-striped" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.houseLights, function(light, index) {
-              return _c("tr", [
-                _c("td", [_vm._v(_vm._s(index + 1))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(light.name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(light.amount) + " Watt")])
-              ])
-            })
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-heading" }, [
-        _vm._v("\n            Verwarming\n        ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c("table", { staticClass: "table table-striped" }, [
-          _vm._m(3),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.houseRadiators, function(radiator, index) {
-              return _c("tr", [
-                _c("td", [_vm._v(_vm._s(index + 1))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(radiator.name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(radiator.length) + " lengte")])
-              ])
-            })
-          )
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v(" ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("m2")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v(" ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", [_vm._v(" ")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v(" ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Watt")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v(" ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Lengte")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-96676854", module.exports)
-  }
-}
-
-/***/ }),
-/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -19115,27 +17072,28 @@ if (false) {
 }
 
 /***/ }),
-/* 78 */
+/* 69 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_axios__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_axios__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_house__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_floors__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modules_rooms__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modules_devices__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modules_lights__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modules_radiators__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__modules_outsideDevices__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__modules_outsideLights__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__modules_informationTypes__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__modules_informationSources__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_house__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_floors__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modules_rooms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modules_devices__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modules_lights__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modules_radiators__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__modules_outsideDevices__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__modules_outsideLights__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__modules_informationTypes__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__modules_informationSources__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__modules_cookingTypes__ = __webpack_require__(78);
 
 
 
@@ -19146,6 +17104,7 @@ window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 window.axios.defaults.headers.common['CSRF-TOKEN'] = token.content;
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_2_axios___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
+
 
 
 
@@ -19169,12 +17128,13 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         outsideDevices: __WEBPACK_IMPORTED_MODULE_10__modules_outsideDevices__["a" /* default */],
         outsideLights: __WEBPACK_IMPORTED_MODULE_11__modules_outsideLights__["a" /* default */],
         informationTypes: __WEBPACK_IMPORTED_MODULE_12__modules_informationTypes__["a" /* default */],
-        informationSources: __WEBPACK_IMPORTED_MODULE_13__modules_informationSources__["a" /* default */]
+        informationSources: __WEBPACK_IMPORTED_MODULE_13__modules_informationSources__["a" /* default */],
+        cookingTypes: __WEBPACK_IMPORTED_MODULE_14__modules_cookingTypes__["a" /* default */]
     }
 }));
 
 /***/ }),
-/* 79 */
+/* 70 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20119,14 +18079,14 @@ var index_esm = {
 
 
 /***/ }),
-/* 80 */
+/* 71 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rooms__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__floors__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rooms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__floors__ = __webpack_require__(10);
 
 
 
@@ -20229,14 +18189,14 @@ var index_esm = {
 });
 
 /***/ }),
-/* 81 */
+/* 72 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rooms__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__floors__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rooms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__floors__ = __webpack_require__(10);
 
 
 
@@ -20336,14 +18296,14 @@ var index_esm = {
 });
 
 /***/ }),
-/* 82 */
+/* 73 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rooms__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__floors__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rooms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__floors__ = __webpack_require__(10);
 
 
 
@@ -20443,7 +18403,7 @@ var index_esm = {
 });
 
 /***/ }),
-/* 83 */
+/* 74 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20529,7 +18489,7 @@ var index_esm = {
 });
 
 /***/ }),
-/* 84 */
+/* 75 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20614,236 +18574,7 @@ var index_esm = {
 });
 
 /***/ }),
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(96)
-/* template */
-var __vue_template__ = __webpack_require__(97)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\house\\overview\\information_types\\row.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-15510a14", Component.options)
-  } else {
-    hotAPI.reload("data-v-15510a14", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 96 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: {
-        informationType: Object
-    },
-    data: function data() {
-        return {
-            showModal: false
-        };
-    },
-
-    computed: {
-        informationSources: function informationSources() {
-            return this.$store.getters.allInformationSources();
-        }
-    },
-    methods: {}
-});
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("tr", [
-    _c("td", [_vm._v(_vm._s(_vm.informationType.name))]),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-primary",
-          attrs: { "data-toggle": "modal", "data-target": "#exampleModal" }
-        },
-        [_vm._v("Beschikbaar voor")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "exampleModal",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "exampleModalLabel",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "modal-dialog", attrs: { role: "document" } },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title",
-                    attrs: { id: "exampleModalLabel" }
-                  },
-                  [_vm._v("Modal title")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: {
-                      type: "button",
-                      "data-dismiss": "modal",
-                      "aria-label": "Close"
-                    }
-                  },
-                  [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _vm._v("\n                    ...\n                ")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary",
-                    attrs: { type: "button", "data-dismiss": "modal" }
-                  },
-                  [_vm._v("Close")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                  [_vm._v("Save changes")]
-                )
-              ])
-            ])
-          ]
-        )
-      ]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-15510a14", module.exports)
-  }
-}
-
-/***/ }),
-/* 98 */
+/* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20887,7 +18618,7 @@ if (false) {
 });
 
 /***/ }),
-/* 99 */
+/* 77 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20931,171 +18662,48 @@ if (false) {
 });
 
 /***/ }),
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(104)
-/* template */
-var __vue_template__ = __webpack_require__(105)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\house\\questions\\HowManyResidents.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-587725f6", Component.options)
-  } else {
-    hotAPI.reload("data-v-587725f6", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 104 */
+/* 78 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router__ = __webpack_require__(2);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 
 
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            houseId: parseInt(__WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].currentRoute.params.houseId)
-        };
+/* harmony default export */ __webpack_exports__["a"] = ({
+    state: {
+        cookingTypes: []
     },
-
-    computed: {
-        house: function house() {
-            return this.$store.getters.getHouse(this.houseId);
+    mutations: {
+        setCookingTypes: function setCookingTypes(state, cookingTypes) {
+            cookingTypes.forEach(function (informationType) {
+                var informationTypeExists = state.cookingTypes.find(function (cookingTypeSearch) {
+                    return cookingTypeSearch.id == informationType.id;
+                });
+                if (informationTypeExists !== undefined) {
+                    state.cookingTypes.splice(state.cookingTypes.indexOf(informationTypeExists), 1);
+                }
+                state.cookingTypes.push(informationType);
+            });
         }
     },
-    methods: {
-        updateResidentCount: function updateResidentCount(event) {
-            this.$store.commit('updateHouse', {
-                'id': this.houseId,
-                'residents_count': event.target.value
+    actions: {
+        loadCookingTypes: function loadCookingTypes(state) {
+            var _this = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_vue___default.a.axios.get('/api/cooking/type/').then(function (response) {
+                _this.commit('setCookingTypes', response.data);
             });
-        },
-        lastPage: function lastPage() {
-            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/home');
-        },
-        savePersonCount: function savePersonCount() {
-            __WEBPACK_IMPORTED_MODULE_0__router__["a" /* default */].push('/house/' + this.houseId + '/floors');
+        }
+    },
+    getters: {
+        allCookingTypes: function allCookingTypes(state) {
+            return function () {
+                return state.cookingTypes;
+            };
         }
     }
 });
-
-/***/ }),
-/* 105 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm.house
-    ? _c("div", { staticClass: "panel panel-default" }, [
-        _c("div", { staticClass: "panel-heading" }, [_vm._v("Vraag 1")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "panel-body", staticStyle: { "font-size": "30px" } },
-          [
-            _vm._v(
-              "\n        Hoeveel personen verblijven er in de woning?\n        "
-            ),
-            _c("input", {
-              staticStyle: { width: "75px" },
-              attrs: { type: "number" },
-              domProps: { value: _vm.house.residents_count },
-              on: { change: _vm.updateResidentCount }
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "panel-footer" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-12" }, [
-              _c(
-                "a",
-                { staticClass: "btn btn-danger", on: { click: _vm.lastPage } },
-                [_vm._v("Vorige")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary pull-right",
-                  on: { click: _vm.savePersonCount }
-                },
-                [_vm._v("Volgende")]
-              )
-            ])
-          ])
-        ])
-      ])
-    : _vm._e()
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-587725f6", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);

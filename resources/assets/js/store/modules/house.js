@@ -22,10 +22,11 @@ export default {
         },
         addHouse(state) {
             Vue.axios.post('/api/house', {
-                user_id: CONFIG.USER_ID
+                user_id: CONFIG.USER_ID,
+                residents_count: 1
             }).then((response) => {
                 this.commit('setHouse', response.data);
-                router.push('/house/' + response.data.id + '/residents');
+                router.push('/house/' + response.data.id);
             })
         }
     },

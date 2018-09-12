@@ -10,7 +10,9 @@ class House extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id'
+        'user_id',
+        'residents_count',
+        'cooking_type_id',
     ];
 
     /**

@@ -68,7 +68,7 @@ export default {
             // todo sort
             return state.rooms.filter(room => room.floor_id == floorId);
         },
-        getRoom(state, roomId) {
+        getRoom: (state) => (roomId) => {
             return state.rooms.find(room => room.id == roomId);
         },
         getRoomsByHouse: (state) => (houseId) => {

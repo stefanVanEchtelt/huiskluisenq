@@ -82,6 +82,11 @@
     <script src="{{ asset('js/vue.js') }}"></script>
 
     <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
         const CONFIG = {};
 
         @if ( Auth::check() )

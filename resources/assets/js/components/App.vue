@@ -10,13 +10,12 @@
     export default {
         data() {
             return {
-                houseId: parseInt(router.currentRoute.params.houseId),
+                houseId: parseInt(router.currentRoute.params.houseId)
             }
         },
         mounted() {
             if (this.houseId) {
                 this.$store.dispatch('loadHouse', this.houseId);
-                this.$store.dispatch('loadFloors', this.houseId);
             }
         }
     }
