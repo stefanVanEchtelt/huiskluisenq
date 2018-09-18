@@ -38,7 +38,8 @@ export default {
             }
         },
         createFloor(state, houseId) {
-            // TODO fix house_id and sort
+            // TODO fix sort
+            console.log(houseId);
             Vue.axios.post('/api/floor', {
                 house_id: houseId,
                 sort: 3

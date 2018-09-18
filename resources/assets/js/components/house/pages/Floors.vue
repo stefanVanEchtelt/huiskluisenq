@@ -2,11 +2,9 @@
     <div v-if="floors">
         <div class="row">
             <div class="col-lg-12">
-                <a class="btn btn-primary">Verdieping +</a>
+                <a class="btn btn-primary" @click="addFloor">Verdieping +</a>
             </div>
         </div>
-
-        <hr style="border-top: 1px solid black">
 
         <FloorRow v-for="floor in floors" :floorId="floor.id" :key="floor.id"/>
     </div>
@@ -27,6 +25,11 @@
         mounted() {
             if (this.houseId) {
                 this.$store.dispatch('loadFloors', this.houseId);
+            }
+        },
+        methods: {
+            addFloor() {
+                this.$store.commit('createFloor', this.houseId);
             }
         },
         components: {
