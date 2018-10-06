@@ -1,7 +1,9 @@
 <template>
     <div>
         <div class="col-lg-12" style="background-color: lightgray; margin: 10px; padding: 10px">
-            Verdieping id: {{ floorId }} <a class="btn btn-sm btn-primary pull-right" @click="addRoom">Kamer +</a>
+            Verdieping id: {{ floorId }}
+            <a class="btn btn-xs btn-danger pull-right" @click="deleteFloor" style="margin: 5px 0 0 10px"><i class="far fa-trash-alt"></i></a>
+            <a class="btn btn-sm btn-primary pull-right" @click="openAddRoomModal">Kamer +</a>
         </div>
 
         <div class="clearfix"></div>
@@ -19,7 +21,28 @@
             </template>
             <template slot="body">
 
-                <a class="btn btn-primary pull-right" @click="addDevice">Apparaat toevoegen</a>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="name">Naam</label>
+                            <input class="form-control" id="name" placeholder="Naam" v-model="createName">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="square_meter">Vierkante meters</label>
+                            <input class="form-control" type="number" id="square_meter" placeholder="M2" v-model="create_square_meter">
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="col-lg-12">
+                    <b>Aparaten</b>
+                    <a class="btn btn-primary pull-right" @click="addDevice">Apparaat toevoegen</a>
+                </div>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -29,15 +52,33 @@
                         <th>&nbsp;</th>
                     </tr>
                     </thead>
-                    <tbody v-for="device in devices">
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
+                    <tbody>
+                        <tr v-for="(device, index) in devices">
+                            <td>
+                                <input class="form-control" v-model="device.name">
+                            </td>
+                            <td>
+                                <input class="form-control" type="number" v-model="device.amount">
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <!--TODO options-->
+                                    <select class="form-control" v-model="device.type_id">
+                                        <option value="">-- Keuze --</option>
+                                        <option value="1">Watt</option>
+                                        <option value="2">Gas</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td><a class="btn btn-danger" @click="devices.splice(index, 1)"><i class="far fa-trash-alt"></i></a></td>
+                        </tr>
                     </tbody>
                 </table>
 
-                <a class="btn btn-primary pull-right" @click="addRadiator">Radiatoor toevoegen</a>
+                <div class="col-lg-12">
+                    <b>Verlichting</b>
+                    <a class="btn btn-primary pull-right" @click="addLight">Verlichting toevoegen</a>
+                </div>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -47,37 +88,56 @@
                         <th>&nbsp;</th>
                     </tr>
                     </thead>
-                    <tbody v-for="radiator in radiators">
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
+                    <tbody>
+                        <tr v-for="(light, index) in lights">
+                            <td>
+                                <input class="form-control" v-model="light.name">
+                            </td>
+                            <td>
+                                <input class="form-control" type="number" v-model="light.amount">
+                            </td>
+                            <td>
+                                Watt
+                            </td>
+                            <td><a class="btn btn-danger" @click="lights.splice(index, 1)"><i class="far fa-trash-alt"></i></a></td>
+                        </tr>
                     </tbody>
                 </table>
 
-                <a class="btn btn-primary pull-right" @click="addLight">Verlichting toevoegen</a>
+                <div class="col-lg-12">
+                    <b>Radiatoren</b>
+                    <a class="btn btn-primary pull-right" @click="addRadiator">Radiatoor toevoegen</a>
+                </div>
                 <table class="table table-striped">
                     <thead>
-                    <tr>
-                        <th>Naam</th>
-                        <th>Aantal</th>
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
-                    </tr>
+                        <tr>
+                            <th>Naam</th>
+                            <th>Aantal</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
                     </thead>
-                    <tbody v-for="light in lights">
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
+                    <tbody>
+                        <tr v-for="(radiator, index) in radiators">
+                            <td>
+                                <input class="form-control" v-model="radiator.name">
+                            </td>
+                            <td>
+                                <input class="form-control" type="number" v-model="radiator.length">
+                            </td>
+                            <td>
+                                cm lengte
+                            </td>
+                            <td><a class="btn btn-danger" @click="radiators.splice(index, 1)"><i class="far fa-trash-alt"></i></a></td>
+                        </tr>
                     </tbody>
                 </table>
 
-
+                <div class="clearfix"></div>
             </template>
             <template slot="footer">
                 <button type="button" class="btn btn-danger pull-left" @click="closeModal">Close</button>
-                <button type="button" class="btn btn-primary">Toevoegen</button>
+                <button type="button" class="btn btn-primary" @click="createRoom">Toevoegen</button>
             </template>
         </modal>
     </div>
@@ -91,6 +151,8 @@
         data() {
             return {
                 showAddRoomModal: false,
+                createName: null,
+                create_square_meter: null,
                 devices: [],
                 radiators: [],
                 lights: [],
@@ -108,23 +170,44 @@
             this.$store.dispatch('loadRoomsByFloor', this.floorId);
         },
         methods: {
-            addDevice() {
-                this.devices.push({});
+            deleteFloor() {
+                this.$store.commit('deleteFloor', this.floorId);
             },
-            addRadiator() {
-                this.radiators.push({});
+            addDevice() {
+                this.devices.push({
+                    name: null,
+                    amount: 0,
+                    type_id: '',
+                });
             },
             addLight() {
-                this.lights.push({});
+                this.lights.push({
+                    name: null,
+                    amount: 0,
+                });
+            },
+            addRadiator() {
+                this.radiators.push({
+                    name: null,
+                    length: 0,
+                });
             },
             closeModal() {
                 this.showAddRoomModal = false;
             },
-            addRoom() {
+            openAddRoomModal() {
                 this.showAddRoomModal = true;
             },
             createRoom() {
-                this.$store.commit('addEmptyRoom', this.floorId);
+                this.showAddRoomModal = false;
+                this.$store.commit('addTotalRoom', {
+                    name: this.createName,
+                    square_meter: this.create_square_meter,
+                    floor_id: this.floorId,
+                    devices: this.devices,
+                    lights: this.lights,
+                    radiators: this.radiators,
+                });
             }
         },
         components: {

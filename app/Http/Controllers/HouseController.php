@@ -75,10 +75,8 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
-//        dd('xxxx');
-//
         $house = $house->update($request->all());
-//
+
         return response()->json(
             $request->all()
         );

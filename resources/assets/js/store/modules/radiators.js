@@ -28,6 +28,11 @@ export default {
                 this.commit('setRadiator', response.data);
             })
         },
+        addRadiator(state, data) {
+            Vue.axios.post('/api/radiator', data).then((response) => {
+                this.commit('setRadiator', response.data);
+            })
+        },
         updateRadiator(state, radiator) {
             let radiatorExists = state.radiators.find(radiatorSearch => radiatorSearch.id == radiator.id);
             if (radiatorExists !== undefined) {

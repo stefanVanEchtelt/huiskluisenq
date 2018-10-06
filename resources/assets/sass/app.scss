@@ -155,3 +155,16 @@ body {
     display: table;
     transition: opacity .3s ease;
 }
+
+.modal{
+    display: block !important; /* I added this to see the modal, you don't need this */
+}
+
+/* Important part */
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    max-height: 75vh;
+    overflow-y: auto;
+}

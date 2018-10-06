@@ -28,6 +28,11 @@ export default {
                 this.commit('setLight', response.data);
             })
         },
+        addLight(state, data) {
+            Vue.axios.post('/api/light', data).then((response) => {
+                this.commit('setLight', response.data);
+            });
+        },
         updateLight(state, light) {
             let lightExists = state.lights.find(LightSearch => LightSearch.id == light.id);
             if (lightExists !== undefined) {

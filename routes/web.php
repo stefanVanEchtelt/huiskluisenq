@@ -31,6 +31,7 @@ Route::resource('/api/floor', 'FloorController');
 Route::get('/api/house/{id}/floors', 'FloorController@getFloorsByHouse');
 
 Route::resource('/api/room', 'RoomController');
+Route::post('/api/full/room', 'RoomController@addAll');
 Route::get('/api/floor/{id}/rooms', 'RoomController@getByFloor');
 Route::get('/api/house/{id}/rooms', 'RoomController@getAllByHouse');
 

@@ -3,11 +3,11 @@
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
                 <a href="#">
-                    Start Bootstrap
+                    Huiskluis
                 </a>
             </li>
             <li>
-                <a href="#">Dashboard</a>
+                <a href="#">Verdiepingen</a>
             </li>
             <li>
                 <a href="#">Shortcuts</a>

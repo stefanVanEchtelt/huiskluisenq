@@ -29,6 +29,11 @@ export default {
                 this.commit('setDevice', response.data);
             })
         },
+        addDevice(state, data) {
+            Vue.axios.post('/api/device', data).then((response) => {
+                this.commit('setDevice', response.data);
+            })
+        },
         updateDevice(state, device) {
             let deviceExists = state.devices.find(deviceSearch => deviceSearch.id == device.id);
             if (deviceExists !== undefined) {

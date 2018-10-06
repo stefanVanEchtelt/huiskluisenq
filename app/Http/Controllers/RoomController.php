@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Device;
+use App\Light;
+use App\Radiator;
 use App\Room;
 use Illuminate\Http\Request;
 
@@ -117,6 +120,37 @@ class RoomController extends Controller
                 ->orderBy('floors.sort')
                 ->orderBy('rooms.created_at')
                 ->get()
+        );
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addAll(Request $request)
+    {
+        $room = Room::create($request->all());
+
+        foreach ($request->get('devices') as $device) {
+            $device['room_id'] = $room->id;
+            Device::create($device);
+        }
+
+        foreach ($request->get('lights') as $light) {
+            $light['room_id'] = $room->id;
+            Light::create($light);
+        }
+        foreach ($request->get('radiators') as $radiator) {
+            $radiator['room_id'] = $room->id;
+            Radiator::create($radiator);
+        }
+
+        $room->load('devices');
+        $room->load('lights');
+        $room->load('radiators');
+
+        return response()->json(
+            $room
         );
     }
 }

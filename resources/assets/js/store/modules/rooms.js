@@ -28,6 +28,14 @@ export default {
                 this.commit('setRoom', response.data);
             })
         },
+        addTotalRoom(state, data) {
+            Vue.axios.post('/api/full/room', data).then((response) => {
+                this.commit('setRoom', response.data);
+                this.commit('setDevices', response.data.devices);
+                this.commit('setLights', response.data.lights);
+                this.commit('setRadiators', response.data.radiators);
+            })
+        },
         updateRoom(state, room) {
             let roomExists = state.rooms.find(roomSearch => roomSearch.id == room.id);
             if (roomExists !== undefined) {
